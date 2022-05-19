@@ -1,4 +1,4 @@
-@use "./scss/_colors" as *;
+@use "./_colors" as *;
 
 * {
   margin: 0;
@@ -24,5 +24,14 @@ code {
   height: 100vh;
   width: 100vw;
   background-color: $black;
-  background-image: url("./scss/images/code.png");
+  background-image: url("../../public/images/code.png");
+}
+
+.page-title {
+  font-size: 3rem;
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: $maize;
+  background-color: $trans-black;
 }

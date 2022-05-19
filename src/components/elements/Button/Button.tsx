@@ -9,6 +9,7 @@ interface Iprops {
   size?: number;
   rounded?: boolean;
   round?: boolean;
+  border?: string;
   onClick: () => void;
 }
 
@@ -19,16 +20,18 @@ const Button: FC<Iprops> = ({
   rounded = false,
   round = false,
   textColor = "inherit",
-  onClick
+  border,
+  onClick,
 }) => {
   const initialStyle = {
     backgroundColor: background,
     color: textColor,
     fontSize: `${size}rem`,
-    padding: `${size / 4}rem`,
+    padding: round ? 0 : `${size / 4}rem`,
     borderRadius: rounded ? `${size / 4}rem` : round ? "50%" : 0,
-    height: round ? `${size * 6}rem` : "fit-content",
-    width: round ? `${size * 6}rem` : "fit-content",
+    height: round ? `${size + text.length}rem` : "fit-content",
+    width: round ? `${size + text.length}rem` : "fit-content",
+    border: border ? `${size * 2}px solid ${border}` : "none",
   };
 
   const [style, setStyle] = useState(initialStyle);
@@ -37,7 +40,6 @@ const Button: FC<Iprops> = ({
     if (background === Colors.transBlack) {
       setStyle({ ...style, backgroundColor: "hsla(0, 0%, 93%, .3)" });
     } else {
-
       const numbers = background.slice(4, background.length - 1).split(",");
       const lightness = parseInt(numbers[2]) + 10;
       const newColor = `hsl(${numbers[0]},${

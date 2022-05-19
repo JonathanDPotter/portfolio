@@ -1,19 +1,19 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home/Home";
-import About from "./components/pages/AboutMe/AboutMe";
+import About from "./components/pages/About/About";
 import Projects from "./components/pages/Projects/Projects";
 
-function App() {
+function Router() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
-export default App;
+export default Router;

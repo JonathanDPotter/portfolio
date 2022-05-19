@@ -1,0 +1,24 @@
+@use "../../../scss/colors" as *;
+
+.container {
+  height: 30vh;
+  max-height: 30vw;
+  width: 30vh;
+  max-width: 30vw;
+  border: 1rem solid $maize;
+  border-radius: 1rem;
+  .content {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: $black;
+    box-shadow: 0 0 0 0.2rem $black;
+    padding: 0.5rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+  }
+}

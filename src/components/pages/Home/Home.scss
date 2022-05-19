@@ -1,7 +1,7 @@
 @use "../../../scss/colors" as *;
 .home {
 
-  .buttons {
+  nav {
     height: fit-content;
     width: 100%;
     display: flex;
@@ -9,11 +9,6 @@
     padding-right: 10vw;
     justify-content: space-around;
 
-  }
-  h1 {
-    display: flex;
-    color: $white;
-    background-color: $trans-black;
   }
 
   img {
