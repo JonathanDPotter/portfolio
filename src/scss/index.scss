@@ -1,4 +1,5 @@
 @use "./_colors" as *;
+@use "./sizing" as *;
 
 * {
   margin: 0;
@@ -6,7 +7,7 @@
   box-sizing: border-box;
 }
 
-html,
+html,relative
 body {
   position: relative;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -21,13 +22,15 @@ code {
 }
 
 .page {
-  height: 100vh;
+  height: $page-h;
   width: 100vw;
+  padding-top: $header-h;
   background-color: $black;
   background-image: url("../../public/images/code.png");
+  overflow: hidden;
 }
 
-.page-title {
+h1, h2 {
   font-size: 3rem;
   width: fit-content;
   padding: 0.5rem;

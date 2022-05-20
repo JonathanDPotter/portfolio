@@ -1,0 +1,14 @@
+@use "../../../scss/sizing" as *;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-h;
+  line-height: $header-h;
+
+  h1 {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,106 @@
+@use "../../../scss/colors" as *;
+
+.hamburger-icon {
+  position: absolute;
+  top: 1rem;
+  left: 90vw;
+  height: 60px;
+  width: 60px;
+  z-index: 1000;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+  background: $trans-white;
+  &:hover {
+    box-shadow: 0 0 1rem $trans-white;
+  }
+
+  .icon-1,
+  .icon-2,
+  .icon-3 {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 32px;
+    height: 3px;
+    background-color: $black;
+    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+  }
+
+  .icon-1 {
+    transform: translateY(-8px);
+    animation-delay: 100ms;
+  }
+
+  .icon-1.open {
+    transform: rotate(40deg);
+  }
+
+  .icon-2.open {
+    opacity: 0;
+  }
+
+  .icon-3 {
+    transform: translateY(8px);
+    animation-delay: 250ms;
+  }
+
+  .icon-3.open {
+    transform: rotate(-40deg);
+  }
+
+  .options {
+    position: absolute;
+    top: 4rem;
+    color: $maize;
+    line-height: 2rem;
+    font-size: 1rem;
+
+    ul {
+      background-color: $black;
+      border-radius: 2px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      li {
+        list-style-type: none;
+        &:hover {
+          background-color: $trans-white;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  .options.closed {
+    display: none;
+  }
+
+  .options.open {
+    display: block;
+  }
+
+  @for $num from 1 through 3 {
+    ul:nth-child(#{$num}) {
+      transform-origin: top center;
+      animation: rotateX ($num * 400ms) ease-in-out forwards;
+    }
+  }
+
+  @keyframes rotateX {
+    0% {
+      opacity: 0;
+      transform: rotateX(-90deg);
+    }
+    50% {
+      transform: rotateX(-20deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+}

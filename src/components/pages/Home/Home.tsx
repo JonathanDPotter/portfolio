@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div className="home page">
-      <h1 className="page-title">Jonathan Potter</h1>
+      <img src="images/webSelfBW.jpg" alt="man in glasses smiling" />
       <nav>
         <Button
           text="About Me"
@@ -17,7 +17,7 @@ const Home = () => {
           textColor={Colors.maize}
           size={2}
           rounded
-          onClick={() => navigate("/about")}
+          onClick={() => navigate("/aboutme")}
         />
         <Button
           text="Projects"
@@ -28,7 +28,6 @@ const Home = () => {
           onClick={() => navigate("/projects")}
         />
       </nav>
-      <img src="images/webSelfBW.jpg" alt="man in glasses smiling" />
     </div>
   );
 };

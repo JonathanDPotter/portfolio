@@ -38,7 +38,7 @@ const Button: FC<Iprops> = ({
 
   const lighten = () => {
     if (background === Colors.transBlack) {
-      setStyle({ ...style, backgroundColor: "hsla(0, 0%, 93%, .3)" });
+      setStyle({ ...style, backgroundColor: Colors.transWhite });
     } else {
       const numbers = background.slice(4, background.length - 1).split(",");
       const lightness = parseInt(numbers[2]) + 10;

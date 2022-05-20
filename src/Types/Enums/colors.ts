@@ -5,7 +5,8 @@ enum Colors {
   timberwolf = "hsl(38, 8%, 81%)",
   onyx = "hsl(203, 7%, 24%)",
   white = "hsl(0, 0%, 93%)",
-  transBlack = "hsla(0, 0%, 12%, .5)",
+  transBlack = "hsla(0, 0%, 12%, .6)",
+  transWhite = "hsla(0, 0%, 93%, .3)",
 }
 
 export default Colors;
