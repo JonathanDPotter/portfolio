@@ -24,6 +24,7 @@ const Menu = () => {
           </a>
           <li onClick={() => navigate("/contact")}>contact</li>
           <li onClick={() => navigate("/about")}>about</li>
+          <li onClick={() => navigate("/resume")}>resume </li>
         </ul>
       </nav>
     </div>
