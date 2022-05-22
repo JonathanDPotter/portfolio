@@ -1,7 +1,35 @@
-.subjects {
-  height: 80vh;
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: space-around;
-  align-items: center;
+@use "../../../scss/colors" as *;
+
+.about-me {
+  background-image: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .opening {
+    height: 100%;
+    width: 100%;
+  }
+
+  .image1,
+  .image2 {
+    height: 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .image1 {
+    background-image: url("../../../../public/images/div1.jpg");
+  }
+
+  .image2 {
+    background-image: url("../../../../public/images/webSelf.jpg");
+  }
+
+  .divider {
+    height: 50%;
+    width: 100%;
+    background-color: $onyx;
+  }
 }
