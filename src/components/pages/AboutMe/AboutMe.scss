@@ -1,13 +1,61 @@
 @use "../../../scss/colors" as *;
+@use "../../../scss/animations" as *;
 
 .about-me {
-  background-image: none;
+  // background-image: none;
   overflow-x: hidden;
   overflow-y: auto;
 
   .opening {
     height: 100%;
     width: 100%;
+    position: relative;
+
+    nav {
+      width: auto;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .container {
+      width: 100%;
+      height: 30vh;
+      position: absolute;
+      top: 35vh;
+      left: 0;
+      background-color: $steel;
+      color: $timberwolf;
+      z-index: 100;
+
+      p {
+        font-size: 3rem;
+        animation: 1s ease-in-out 0s 1 slideInFromLeft;
+      }
+      .arrow {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: 3s ease-in-out 0s 1 fade-in;
+
+        .left,
+        .right {
+          height: 0.5rem;
+          background-color: $timberwolf;
+          border-radius: 1rem;
+          width: 10vw;
+        }
+
+        .left {
+          transform: rotate(20deg) translateX(0.25rem);
+        }
+
+        .right {
+          transform: rotate(-20deg) translateX(-0.25rem);
+        }
+      }
+    }
   }
 
   .image1,
@@ -28,8 +76,15 @@
   }
 
   .divider {
-    height: 50%;
+    height: 50vh;
     width: 100%;
     background-color: $onyx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .slide {
+      animation: 1s ease-in-out 0s 1 slideInFromLeft;
+    }
   }
 }
