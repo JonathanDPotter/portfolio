@@ -5,6 +5,7 @@ import Button from "../../elements/Button/Button";
 import ImageSlider from "../../elements/ImageSlider/ImageSlider";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 import Cats from "../../../cats.json";
+import Cars from "../../../cars.json";
 import "./AboutMe.scss";
 
 const AboutMe = () => {
@@ -44,13 +45,22 @@ const AboutMe = () => {
       <div className="divider">
         <TriggerOnScroll>
           <p className="slide">I have five cats.</p>
-          <ImageSlider images={Cats.images} />
+          <ImageSlider
+            title={Cats.title}
+            images={Cats.images}
+            className="slide"
+          />
         </TriggerOnScroll>
       </div>
       <div className="image2"></div>
       <div className="divider">
         <TriggerOnScroll>
           <p className="slide">I live in Portland Maine.</p>
+          <ImageSlider
+            title={Cars.title}
+            images={Cars.images}
+            className="slide"
+          />
         </TriggerOnScroll>
       </div>
       <div className="divider"></div>
