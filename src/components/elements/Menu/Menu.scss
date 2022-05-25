@@ -57,8 +57,8 @@
     font-size: 1rem;
 
     ul {
-      background-color: $black;
-      border-radius: 2px;
+      background-color: $trans-black;
+      border-radius: 5px;
 
       a {
         text-decoration: none;
@@ -69,7 +69,6 @@
         list-style-type: none;
         &:hover {
           background-color: $trans-white;
-          border-radius: 2px;
         }
       }
     }

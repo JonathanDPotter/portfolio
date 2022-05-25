@@ -1,0 +1,69 @@
+@use "../../../scss/colors" as *;
+
+.slider-container {
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  grid-template-areas:
+    "left image right"
+    "left dots right";
+
+  button {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 3rem;
+    font-size: 3rem;
+  }
+
+  #left-arrow {
+    grid-area: left;
+  }
+
+  #right-arrow {
+    grid-area: right;
+  }
+
+  img {
+    grid-area: image;
+    max-width: 900px;
+  }
+
+  .dots {
+    height: 2rem;
+    width: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    grid-area: dots;
+
+    .radio-container {
+      margin: auto 0;
+      height: 1.5rem;
+      width: 1.5rem;
+      display: block;
+      position: relative;
+
+      input {
+        opacity: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .radio {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: $timberwolf;
+        border-radius: 50%;
+      }
+    }
+  }
+}

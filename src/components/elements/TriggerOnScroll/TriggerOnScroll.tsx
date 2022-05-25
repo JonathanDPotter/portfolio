@@ -8,7 +8,7 @@ interface Iprops {
 const TriggerOnScroll: FC<Iprops> = ({ children }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-25% 0px",
+    rootMargin: "-20% 0px",
   });
 
   return <div ref={ref}>{inView && children}</div>;
