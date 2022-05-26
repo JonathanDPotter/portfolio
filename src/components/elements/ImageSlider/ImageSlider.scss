@@ -1,4 +1,5 @@
 @use "../../../scss/colors" as *;
+@use "../../../scss/animations" as *;
 
 .slider-container {
   height: 100%;
@@ -33,6 +34,7 @@
     grid-area: image;
     max-width: 100%;
     margin: auto;
+    transition: opacity 200ms ease-in;
   }
 
   .dots {

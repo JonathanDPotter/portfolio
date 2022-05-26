@@ -4,8 +4,9 @@ import Colors from "../../../Types/Enums/colors";
 import Button from "../../elements/Button/Button";
 import ImageSlider from "../../elements/ImageSlider/ImageSlider";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
-import Cats from "../../../cats.json";
-import Cars from "../../../cars.json";
+import Cats from "../../../json/cats.json";
+import Cars from "../../../json/cars.json";
+import Portland from "../../../json/portland.json";
 import "./AboutMe.scss";
 
 const AboutMe = () => {
@@ -38,6 +39,11 @@ const AboutMe = () => {
         <div className="divider">
           <TriggerOnScroll>
             <p className="slide">I live in Portland Maine.</p>
+            <ImageSlider
+              title={Portland.title}
+              images={Portland.images}
+              className="slide"
+            />
           </TriggerOnScroll>
         </div>
       </div>

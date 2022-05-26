@@ -1,4 +1,4 @@
-@keyframes slideInFromLeft {
+@keyframes slide-in-from-left {
   0% {
     transform: translateX(-100%);
   }
@@ -7,16 +7,23 @@
   }
 }
 
+
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
 
-  66% {
-    opacity: 0;
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
   }
 
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
