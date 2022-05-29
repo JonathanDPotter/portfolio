@@ -43,6 +43,9 @@ const Projects = () => {
               </a>
               .
             </p>
+            <p className="link" onClick={() => navigate("/projects/howler")}>
+              more...
+            </p>
             <img
               src="https://user-images.githubusercontent.com/30156468/168443012-07a97953-a127-472b-934c-702196719630.png"
               alt="howler app screenshot"
@@ -50,6 +53,8 @@ const Projects = () => {
           </TriggerOnScroll>
         </div>
       </div>
+      <div className="image1"></div>
+      <div className="divider"></div>
     </div>
   );
 };
