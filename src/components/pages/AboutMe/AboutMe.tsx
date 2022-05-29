@@ -61,7 +61,7 @@ const AboutMe = () => {
       <div className="image2"></div>
       <div className="divider">
         <TriggerOnScroll>
-          <p className="slide">I live in Portland Maine.</p>
+          <p className="slide">Here are some cars.</p>
           <ImageSlider
             title={Cars.title}
             images={Cars.images}
@@ -69,7 +69,6 @@ const AboutMe = () => {
           />
         </TriggerOnScroll>
       </div>
-      <div className="divider"></div>
     </div>
   );
 };

@@ -7,8 +7,8 @@
   box-sizing: border-box;
 }
 
-html,relative
-body {
+html,
+relative body {
   position: relative;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -28,9 +28,25 @@ code {
   background-color: $black;
   background-image: url("../../public/images/code.png");
   overflow: hidden;
+
+  .opening {
+    min-height: 100vh;
+    width: 100%;
+
+    .top-space {
+      height: 25vh;
+    }
+
+    nav {
+      width: auto;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 3rem;
   width: fit-content;
   padding: 0.5rem;

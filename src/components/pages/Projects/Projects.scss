@@ -1,0 +1,17 @@
+@use "../../../scss/colors" as *;
+@use "../../../scss/animations" as *;
+
+.projects {
+  overflow-x: hidden;
+  overflow-y: auto;
+  .divider {
+    min-height: 50vh;
+    width: auto;
+    background-color: $steel;
+    color: $timberwolf;
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
