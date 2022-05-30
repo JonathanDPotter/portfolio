@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
 import Colors from "../../../Types/Enums/colors";
 import Button from "../../elements/Button/Button";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
@@ -7,6 +8,18 @@ import "./Projects.scss";
 
 const Projects = () => {
   const navigate = useNavigate();
+  Modal.setAppElement("#root");
+  const [howlerModalOpen, setHowlerModalOpen] = useState(false);
+  const [modalClose, setModalClose] = useState(false);
+
+  const closeModal = (closeFunction: () => void) => {
+    setModalClose(true);
+    setTimeout(() => {
+      closeFunction();
+      setModalClose(false);
+    }, 500);
+  };
+
   return (
     <div className="projects page">
       <div className="opening">
@@ -43,7 +56,7 @@ const Projects = () => {
               </a>
               .
             </p>
-            <p className="link" onClick={() => navigate("/projects/howler")}>
+            <p className="link" onClick={() => setHowlerModalOpen(true)}>
               more...
             </p>
             <img
@@ -51,6 +64,22 @@ const Projects = () => {
               alt="howler app screenshot"
             />
           </TriggerOnScroll>
+          <Modal
+            isOpen={howlerModalOpen}
+            contentLabel="Example Modal"
+            onRequestClose={() => closeModal(() => setHowlerModalOpen(false))}
+            className={modalClose ? "modal close" : "modal"}
+            overlayClassName={modalClose ? "overlay close" : "overlay"}
+          >
+            <h2>Modal</h2>
+            <p>This is the modal body.</p>
+            <button
+              autoFocus
+              onClick={() => closeModal(() => setHowlerModalOpen(false))}
+            >
+              OK
+            </button>
+          </Modal>
         </div>
       </div>
       <div className="image1"></div>
