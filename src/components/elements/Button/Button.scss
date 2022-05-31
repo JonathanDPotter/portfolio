@@ -5,6 +5,6 @@ button {
   font-family: inherit;
   text-align: center;
   &:focus {
-    outline: none;
+    outline: $white solid 2px;
   }
 }

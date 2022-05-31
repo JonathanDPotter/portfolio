@@ -10,6 +10,14 @@
     background-color: $steel;
     color: $timberwolf;
 
+    .trigger {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 0 2rem;
+    }
+
     h3 {
       font-size: 2rem;
     }
@@ -27,6 +35,21 @@
       cursor: pointer;
       text-decoration: none;
     }
+
+    button {
+      width: fit-content;
+      align-self: center;
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background-color: $timberwolf;
+      color: $onyx;
+
+      &:focus,
+      &:hover {
+        background-color: lighten($timberwolf, 10%);
+      }
+    }
   }
 
   .image1,
@@ -40,5 +63,9 @@
 
   .image1 {
     background-image: url("https://user-images.githubusercontent.com/30156468/168443012-07a97953-a127-472b-934c-702196719630.png");
+  }
+
+  .image2 {
+    background-image: url("https://user-images.githubusercontent.com/30156468/167709749-baf6b890-6e25-4150-b88f-840ddd2f01e5.png");
   }
 }
