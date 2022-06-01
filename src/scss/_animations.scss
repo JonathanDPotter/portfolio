@@ -40,3 +40,15 @@
     opacity: 0;
   }
 }
+
+@keyframes reveal {
+  0% {
+    height: 50vh;
+    top: 0;
+  }
+
+  100% {
+    height: 0;
+    top: 100%
+  }
+}

@@ -7,6 +7,7 @@ import Colors from "../../../Types/Enums/colors";
 import howlerMarkdown from "../../../markdown/howlerMarkdown.md";
 import blogMarkdown from "../../../markdown/blogMarkown.md";
 import "./Projects.scss";
+import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -68,20 +69,24 @@ const Projects = () => {
           </nav>
         </div>
         <div className="divider">
-          <Project
-            markdownText={howlerMarkdownText}
-            image="https://user-images.githubusercontent.com/30156468/168443012-07a97953-a127-472b-934c-702196719630.png"
-            link="https://github.com/JonathanDPotter/howler"
-          />
+          <TriggerOnScroll>
+            <Project
+              markdownText={howlerMarkdownText}
+              image="https://user-images.githubusercontent.com/30156468/168443012-07a97953-a127-472b-934c-702196719630.png"
+              link="https://github.com/JonathanDPotter/howler"
+            />
+          </TriggerOnScroll>
         </div>
       </div>
       <div className="image1"></div>
       <div className="divider">
-        <Project
-          markdownText={blogMarkdownText}
-          image="https://user-images.githubusercontent.com/30156468/167709749-baf6b890-6e25-4150-b88f-840ddd2f01e5.png"
-          link="https://github.com/JonathanDPotter/blog-api-front"
-        />
+        <TriggerOnScroll>
+          <Project
+            markdownText={blogMarkdownText}
+            image="https://user-images.githubusercontent.com/30156468/167709749-baf6b890-6e25-4150-b88f-840ddd2f01e5.png"
+            link="https://github.com/JonathanDPotter/blog-api-front"
+          />
+        </TriggerOnScroll>
       </div>
       <div className="image2"></div>
     </div>

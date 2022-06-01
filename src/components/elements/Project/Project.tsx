@@ -6,6 +6,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Button from "../Button/Button";
 import TriggerOnScroll from "../TriggerOnScroll/TriggerOnScroll";
 import Colors from "../../../Types/Enums/colors";
+import "./Project.scss";
 
 interface Iprops {
   markdownText: string;
@@ -26,19 +27,18 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
   };
 
   return (
-    <div className="divider">
-      <TriggerOnScroll className="trigger">
-        <ReactMarkdown
-          children={markdownText.substring(0, markdownText.indexOf("---"))}
-        />
-        <p className="link" onClick={() => setModalOpen(true)}>
-          more...
-        </p>
-        <img src={image} alt="app screenshot" />
-        <button onClick={() => window.open(link, "_blank")}>
-          see code on github <FontAwesomeIcon icon={faGithub} />
-        </button>
-      </TriggerOnScroll>
+    <>
+      <div className="curtain"></div>
+      <ReactMarkdown
+        children={markdownText.substring(0, markdownText.indexOf("---"))}
+      />
+      <p className="link" onClick={() => setModalOpen(true)}>
+        more...
+      </p>
+      <img src={image} alt="app screenshot" />
+      <button onClick={() => window.open(link, "_blank")}>
+        see code on github <FontAwesomeIcon icon={faGithub} />
+      </button>
       <Modal
         isOpen={modalOpen}
         contentLabel="Example Modal"
@@ -56,7 +56,7 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
           onClick={() => closeModal(() => setModalOpen(false))}
         />
       </Modal>
-    </div>
+    </>
   );
 };
 

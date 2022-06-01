@@ -1,0 +1,15 @@
+@use "../../../scss/animations" as *;
+@use "../../../scss/colors" as *;
+
+.trigger {
+  position: relative;
+}
+
+.curtain {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  background-color: $steel;
+  z-index: 100;
+  animation: 2000ms linear reveal;
+}
