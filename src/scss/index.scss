@@ -78,8 +78,8 @@ $slide-time: 500ms;
   color: $white;
   animation: $slide-time ease-in-out slide-in-from-left;
 
-  h1,
-  h2 {
+  h2,
+  h3 {
     color: $timberwolf;
     background-color: inherit;
   }
