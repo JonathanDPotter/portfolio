@@ -4,6 +4,7 @@
 .projects {
   overflow-x: hidden;
   overflow-y: auto;
+  background-image: none;
   .divider {
     min-height: 50vh;
     width: auto;
@@ -26,6 +27,8 @@
 
     img {
       width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       height: 10rem;
       object-fit: cover;
       object-position: 0 0;
@@ -58,7 +61,6 @@
     height: 30vh;
     background-attachment: fixed;
     background-position: start;
-    background-repeat: no-repeat;
     background-size: auto;
   }
 }

@@ -8,6 +8,7 @@ import howlerMarkdown from "../../../markdown/howlerMarkdown.md";
 import blogMarkdown from "../../../markdown/blogMarkown.md";
 import upcMarkdown from "../../../markdown/upcMarkdown.md";
 import weatherMarkdown from "../../../markdown/weatherMarkdown.md";
+import typieMarkdown from "../../../markdown/typieMarkdown.md";
 import "./Projects.scss";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 
@@ -20,6 +21,7 @@ const Projects = () => {
   const [blogMarkdownText, setBlogMarkdownText] = useState("");
   const [upcMarkdownText, setUpcMarkdownText] = useState("");
   const [weatherMarkdownText, setWeatherMarkdownText] = useState("");
+  const [typieMarkdownText, setTypieMarkdownText] = useState("");
 
   const markdowns = [
     {
@@ -54,6 +56,14 @@ const Projects = () => {
         "https://user-images.githubusercontent.com/30156468/168269677-996c3723-eafd-4a0b-9ad8-5c96898bcfaa.png",
       link: "https://github.com/JonathanDPotter/weather-api",
     },
+    {
+      markdown: typieMarkdown,
+      setter: setTypieMarkdownText,
+      text: typieMarkdownText,
+      image:
+        "https://user-images.githubusercontent.com/30156468/167945133-7badd9ca-7131-4d21-9472-ea4176410c43.png",
+      link: "https://github.com/JonathanDPotter/typie-talkie-front",
+    },
   ];
 
   useEffect(() => {
@@ -71,26 +81,28 @@ const Projects = () => {
 
   return (
     <div className="projects page">
-      <div className="top-space">
-        <h2>Projects</h2>
-        <nav>
-          <Button
-            background={Colors.transBlack}
-            textColor={Colors.maize}
-            size={2}
-            text="Home"
-            rounded
-            onClick={() => navigate("/")}
-          />
-          <Button
-            background={Colors.transBlack}
-            textColor={Colors.maize}
-            size={2}
-            text="About Me"
-            rounded
-            onClick={() => navigate("/aboutme")}
-          />
-        </nav>
+      <div className="opening">
+        <div className="top-space">
+          <h2>Projects</h2>
+          <nav>
+            <Button
+              background={Colors.transBlack}
+              textColor={Colors.maize}
+              size={2}
+              text="Home"
+              rounded
+              onClick={() => navigate("/")}
+            />
+            <Button
+              background={Colors.transBlack}
+              textColor={Colors.maize}
+              size={2}
+              text="About Me"
+              rounded
+              onClick={() => navigate("/aboutme")}
+            />
+          </nav>
+        </div>
       </div>
       {markdowns.map(({ text, image, link }, i) => {
         return (
@@ -107,6 +119,7 @@ const Projects = () => {
           </>
         );
       })}
+      <div className="divider"></div>
     </div>
   );
 };
