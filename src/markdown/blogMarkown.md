@@ -1,6 +1,6 @@
 ## Blog
 
-Front end for the Odin Project Blog project. The app has full CRUD functionality with local authorization and redux state management.The back-end repo can be found [here](https://github.com/JonathanDPotter/rest-api), and the blog is hosted [here](https://jonathandpotter.github.io/blog-api-front/)
+Front end for the Odin Project Blog project. The app has full CRUD functionality with local authorization and redux state management.The back-end repo can be found [here](https://github.com/JonathanDPotter/rest-api), and the front-end is hosted [here](https://jonathandpotter.github.io/blog-api-front/)
 
 ---
 

@@ -54,20 +54,11 @@
     }
   }
 
-  .image1,
-  .image2 {
-    height: 50vh;
+  .back-image {
+    height: 30vh;
     background-attachment: fixed;
     background-position: start;
     background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .image1 {
-    background-image: url("https://user-images.githubusercontent.com/30156468/168443012-07a97953-a127-472b-934c-702196719630.png");
-  }
-
-  .image2 {
-    background-image: url("https://user-images.githubusercontent.com/30156468/167709749-baf6b890-6e25-4150-b88f-840ddd2f01e5.png");
+    background-size: auto;
   }
 }
