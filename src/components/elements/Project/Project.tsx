@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Button from "../Button/Button";
 import TriggerOnScroll from "../TriggerOnScroll/TriggerOnScroll";
-import Colors from "../../../Types/Enums/colors";
+import Colors from "../../../Types/enums/colors";
 import "./Project.scss";
+import { useTheme } from "../../../context/themeContext";
 
 interface Iprops {
   markdownText: string;
@@ -17,6 +18,7 @@ interface Iprops {
 const Project: FC<Iprops> = ({ markdownText, image, link }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalClose, setModalClose] = useState(false);
+  const { theme } = useTheme();
 
   const closeModal = (closeFunction: () => void) => {
     setModalClose(true);
@@ -28,7 +30,7 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
 
   return (
     <>
-      <div className="curtain"></div>
+      <div className="curtain" data-theme={theme}></div>
       <ReactMarkdown
         children={markdownText.substring(0, markdownText.indexOf("---"))}
       />
@@ -49,8 +51,6 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
         <ReactMarkdown children={markdownText} />
         <Button
           text="Close"
-          background={Colors.timberwolf}
-          textColor={Colors.onyx}
           size={2}
           rounded
           onClick={() => closeModal(() => setModalOpen(false))}

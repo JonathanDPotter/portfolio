@@ -9,7 +9,6 @@
   z-index: 1000;
   cursor: pointer;
   border-radius: 1rem;
-  transition: all 0.2s ease-in-out;
   background: $trans-white;
   &:hover {
     box-shadow: 0 0 1rem $trans-white;
@@ -57,6 +56,7 @@
     font-size: 1rem;
 
     ul {
+      padding: 0.5rem;
       background-color: $trans-black;
       border-radius: 5px;
 
@@ -85,7 +85,7 @@
   @for $num from 1 through 3 {
     ul:nth-child(#{$num}) {
       transform-origin: top center;
-      animation: rotateX ($num * 400ms) ease-in-out forwards;
+      animation: rotateX ($num * 600ms) ease-in-out forwards;
     }
   }
 
@@ -100,6 +100,28 @@
     100% {
       opacity: 1;
       transform: rotateX(0deg);
+    }
+  }
+}
+
+.hamburger-icon[data-theme="light"] {
+  background: $russian-green;
+
+  &:hover {
+    box-shadow: 0 0 1rem $russian-green;
+  }
+
+  .icon-1,
+  .icon-2,
+  .icon-3 {
+    background-color: $space-sparkle;
+  }
+
+  .options {
+    color: $black;
+
+    ul {
+      background-color: $laurel;
     }
   }
 }

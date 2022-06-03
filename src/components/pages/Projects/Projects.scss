@@ -4,7 +4,6 @@
 .projects {
   overflow-x: hidden;
   overflow-y: auto;
-  background-image: none;
   .divider {
     min-height: 50vh;
     width: auto;
@@ -21,8 +20,8 @@
 
     h2 {
       font-size: 2rem;
-      color: $timberwolf !important;
-      background-color: inherit !important;
+      color: $timberwolf;
+      background-color: inherit;
     }
 
     img {
@@ -59,8 +58,43 @@
 
   .back-image {
     height: 30vh;
+    max-width: 1200px;
+    margin: 0 auto;
     background-attachment: fixed;
     background-position: start;
-    background-size: auto;
+    background-size: contain;
+  }
+}
+
+.projects[data-theme="light"] {
+  
+  h2 {
+    color: $russian-green;
+    background-color: inherit;
+  }
+
+  .divider {
+    background-color: $space-sparkle;
+    color: $laurel;
+
+    h2 {
+      color: $laurel;
+      background-color: inherit;
+    }
+
+    .link,
+    a {
+      color: $lavender;
+    }
+
+    button {
+      background-color: $laurel;
+      color: $raisin-black;
+
+      &:focus,
+      &:hover {
+        background-color: lighten($laurel, 10%);
+      }
+    }
   }
 }

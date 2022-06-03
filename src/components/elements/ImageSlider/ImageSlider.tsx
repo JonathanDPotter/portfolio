@@ -2,8 +2,9 @@ import React, { ChangeEvent, FC, MouseEvent, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuid } from "uuid";
-import Fade from "../../../Types/Enums/fade";
+import Fade from "../../../Types/enums/fade";
 import "./ImageSlider.scss";
+import { useTheme } from "../../../context/themeContext";
 
 interface Iprops {
   className?: string;
@@ -15,6 +16,8 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
   const numberOfImages = images.length;
   const [image, setImage] = useState(0);
   const [opacity, setOpacity] = useState<number>(1);
+
+  const { theme } = useTheme();
 
   const timeout = 200;
 
@@ -50,6 +53,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
       className={
         className ? `slider-container ${className}` : "slider-container"
       }
+      data-theme={theme}
     >
       <button onClick={handleClick} id="left-arrow">
         <FontAwesomeIcon icon={faAngleLeft} />

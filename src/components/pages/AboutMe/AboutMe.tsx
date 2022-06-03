@@ -1,74 +1,73 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Colors from "../../../Types/Enums/colors";
-import Button from "../../elements/Button/Button";
 import ImageSlider from "../../elements/ImageSlider/ImageSlider";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 import Cats from "../../../json/cats.json";
 import Cars from "../../../json/cars.json";
 import Portland from "../../../json/portland.json";
+import IjsonImages from "../../../Types/interfaces/jsonImages";
 import "./AboutMe.scss";
+import { useTheme } from "../../../context/themeContext";
+import TopSpace from "../../elements/TopSpace/TopSpace";
+
+interface IsubjectInput {
+  title: string;
+  imageJson: IjsonImages;
+  background: string;
+}
 
 const AboutMe = () => {
   const navigate = useNavigate();
 
+  const { theme } = useTheme();
+
+  const jsonImages: IsubjectInput[] = [
+    {
+      title: "I live in Portland Maine.",
+      imageJson: Portland,
+      background:
+        "https://assets.vogue.com/photos/6125681736841c7a9ecfa2ae/master/w_2560%2Cc_limit/454278947",
+    },
+    {
+      title: "I have five cats.",
+      imageJson: Cats,
+      background:
+        "https://res.cloudinary.com/skarsnik/image/upload/v1654252884/webSelf_bfxuhv.jpg",
+    },
+    {
+      title: "Here are some Cars.",
+      imageJson: Cars,
+      background:
+        "https://res.cloudinary.com/skarsnik/image/upload/v1654252881/webSelfBW_krqju9.png",
+    },
+  ];
+
   return (
-    <div className="about-me page">
+    <div className="about-me page" data-theme={theme}>
       <div className="opening">
-        <div className="top-space">
-          <h2>About Me</h2>
-          <nav>
-            <Button
-              background={Colors.transBlack}
-              textColor={Colors.maize}
-              size={2}
-              text="Home"
-              rounded
-              onClick={() => navigate("/")}
-            />
-            <Button
-              background={Colors.transBlack}
-              textColor={Colors.maize}
-              size={2}
-              text="Projects"
-              rounded
-              onClick={() => navigate("/projects")}
-            />
-          </nav>
-        </div>
-        <div className="divider">
-          <TriggerOnScroll>
-            <p className="slide">I live in Portland Maine.</p>
-            <ImageSlider
-              title={Portland.title}
-              images={Portland.images}
-              className="slide"
-            />
-          </TriggerOnScroll>
-        </div>
+        <TopSpace />
       </div>
-      <div className="image1"></div>
-      <div className="divider">
-        <TriggerOnScroll>
-          <p className="slide">I have five cats.</p>
-          <ImageSlider
-            title={Cats.title}
-            images={Cats.images}
-            className="slide"
-          />
-        </TriggerOnScroll>
-      </div>
-      <div className="image2"></div>
-      <div className="divider">
-        <TriggerOnScroll>
-          <p className="slide">Here are some cars.</p>
-          <ImageSlider
-            title={Cars.title}
-            images={Cars.images}
-            className="slide"
-          />
-        </TriggerOnScroll>
-      </div>
+      {jsonImages.map(({ title, imageJson, background }) => {
+        return (
+          <>
+            <div className="divider">
+              <TriggerOnScroll>
+                <p className="slide">{title}</p>
+                <ImageSlider
+                  title={imageJson.title}
+                  images={imageJson.images}
+                  className="slide"
+                />
+              </TriggerOnScroll>
+            </div>
+            <div
+              className="back-image"
+              style={{ backgroundImage: `url(${background})` }}
+            ></div>
+          </>
+        );
+      })}
+      <div className="divider"></div>
     </div>
   );
 };

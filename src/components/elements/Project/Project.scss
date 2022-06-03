@@ -13,3 +13,7 @@
   z-index: 100;
   animation: 1500ms linear reveal;
 }
+
+.curtain[data-theme="light"] {
+  background-color: $space-sparkle;
+}

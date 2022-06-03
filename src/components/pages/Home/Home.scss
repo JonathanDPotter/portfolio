@@ -1,24 +1,29 @@
-@use "../../../scss/colors" as *;
 .home {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  img {
-    height: 50vh;
-    display: block;
+  .container {
+    height: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    opacity: .8;
-    border-radius: 1rem;
-  }
-
-  nav {
-    height: 50vh;
-    width: fit-content;
     display: flex;
-    flex-direction: column;
-    padding-left: 20vw;
-    padding-right: 10vw;
+    align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
+
+    img {
+      height: 50vh;
+      display: block;
+      margin: 0 auto;
+      opacity: 0.8;
+      border-radius: 1rem;
+    }
+
+    nav {
+      height: 50vh;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      padding-left: 20vw;
+      padding-right: 10vw;
+      justify-content: space-around;
+    }
   }
 }

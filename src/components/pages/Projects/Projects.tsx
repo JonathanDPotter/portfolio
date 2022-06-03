@@ -3,17 +3,21 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Button from "../../elements/Button/Button";
 import Project from "../../elements/Project/Project";
-import Colors from "../../../Types/Enums/colors";
+import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
+import Colors from "../../../Types/enums/colors";
 import howlerMarkdown from "../../../markdown/howlerMarkdown.md";
 import blogMarkdown from "../../../markdown/blogMarkown.md";
 import upcMarkdown from "../../../markdown/upcMarkdown.md";
 import weatherMarkdown from "../../../markdown/weatherMarkdown.md";
 import typieMarkdown from "../../../markdown/typieMarkdown.md";
+import { useTheme } from "../../../context/themeContext";
 import "./Projects.scss";
-import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
+import TopSpace from "../../elements/TopSpace/TopSpace";
 
 const Projects = () => {
   const navigate = useNavigate();
+
+  const { theme } = useTheme();
 
   Modal.setAppElement("#root");
 
@@ -80,29 +84,9 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="projects page">
+    <div className="projects page" data-theme={theme}>
       <div className="opening">
-        <div className="top-space">
-          <h2>Projects</h2>
-          <nav>
-            <Button
-              background={Colors.transBlack}
-              textColor={Colors.maize}
-              size={2}
-              text="Home"
-              rounded
-              onClick={() => navigate("/")}
-            />
-            <Button
-              background={Colors.transBlack}
-              textColor={Colors.maize}
-              size={2}
-              text="About Me"
-              rounded
-              onClick={() => navigate("/aboutme")}
-            />
-          </nav>
-        </div>
+        <TopSpace />
       </div>
       {markdowns.map(({ text, image, link }, i) => {
         return (

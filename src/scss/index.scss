@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
 html,
@@ -23,11 +24,14 @@ code {
 }
 
 .page {
+  h2 {
+    margin: 1rem;
+  }
+  
   height: $page-h;
   width: 100vw;
   padding-top: $header-h;
   background-color: $black;
-  background-image: url("../../public/images/code.png");
   overflow: hidden;
 
   .top-space {
@@ -40,6 +44,10 @@ code {
     justify-content: space-around;
   }
 }
+
+.page[data-theme="light"] {
+  background-color: $lavender;
+} 
 
 h1,
 h2 {

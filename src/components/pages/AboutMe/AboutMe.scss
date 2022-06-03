@@ -4,10 +4,11 @@
 .about-me {
   overflow-x: hidden;
   overflow-y: auto;
-  background-image: none;
+
   .divider {
     min-height: 50vh;
-    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: $onyx;
     color: $steel;
 
@@ -20,20 +21,25 @@
     }
   }
 
-  .image1,
-  .image2 {
-    height: 50vh;
+  .back-image {
+    height: 30vh;
+    max-width: 1200px;
+    margin: 0 auto;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+  }
+}
+
+.about-me[data-theme="light"] {
+  h2 {
+    color: $russian-green;
+    background-color: $trans-white;
   }
 
-  .image1 {
-    background-image: url("../../../../public/images/div1.jpg");
-  }
-
-  .image2 {
-    background-image: url("../../../../public/images/webSelf.jpg");
+  .divider {
+    background-color: $russian-green;
+    color: $space-sparkle;
   }
 }

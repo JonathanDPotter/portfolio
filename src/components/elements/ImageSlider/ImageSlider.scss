@@ -3,7 +3,8 @@
 
 .slider-container {
   height: 100%;
-  width: 100vw;
+  width: auto;
+  margin: 0 auto;
   display: grid;
   overflow-y: hidden;
   grid-template-areas:
@@ -30,11 +31,20 @@
     grid-area: right;
   }
 
+  #left-arrow,
+  #right-arrow {
+    &:focus {
+      outline: none;
+      color: lighten($steel, 20%);
+    }
+  }
+
   img {
     grid-area: image;
     max-width: 100%;
     margin: auto;
     transition: opacity 200ms ease-in;
+    z-index: 2;
   }
 
   .dots {
@@ -74,6 +84,27 @@
 
       input:checked ~ .radio {
         background-color: $maize;
+      }
+    }
+  }
+}
+
+.slider-container[data-theme="light"] {
+  #left-arrow,
+  #right-arrow {
+    &:focus {
+      color: lighten($space-sparkle, 20%);
+    }
+  }
+
+  .dots {
+    .radio-container {
+      .radio {
+        background-color: $lavender;
+      }
+
+      input:checked ~ .radio {
+        background-color: $space-sparkle;
       }
     }
   }

@@ -4,7 +4,27 @@ button {
   border: none;
   font-family: inherit;
   text-align: center;
+  color: $maize;
+  background-color: $trans-black;
+
   &:focus {
     outline: $white solid 2px;
+  }
+
+  &:hover {
+    background-color: $trans-white;
+  }
+}
+
+button[data-theme="light"] {
+  color: $russian-green;
+  background-color: $trans-white;
+
+  &:focus {
+    outline: $laurel solid 2px;
+  }
+
+  &:hover {
+    background-color: lighten($trans-black, 60%);
   }
 }
