@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../../elements/Button/Button";
-import Colors from "../../../Types/enums/colors";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../../context/themeContext";
 import "./Home.scss";
-import TopSpace from "../../elements/TopSpace/TopSpace";
 
 const Home = () => {
   const navigate = useNavigate();

@@ -28,3 +28,16 @@ button[data-theme="light"] {
     background-color: lighten($trans-black, 60%);
   }
 }
+
+button[data-theme="bright"] {
+  color: $cadmium-orange;
+  background-color: $trans-white;
+
+  &:focus {
+    outline: $razzmatazz solid 2px;
+  }
+
+  &:hover {
+    background-color: lighten($trans-black, 60%);
+  }
+}

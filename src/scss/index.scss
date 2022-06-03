@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 html,
@@ -27,7 +27,7 @@ code {
   h2 {
     margin: 1rem;
   }
-  
+
   height: $page-h;
   width: 100vw;
   padding-top: $header-h;
@@ -47,11 +47,11 @@ code {
 
 .page[data-theme="light"] {
   background-color: $lavender;
-} 
+}
 
 h1,
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   width: fit-content;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -70,7 +70,7 @@ $slide-time: 500ms;
 
 .modal {
   position: absolute;
-  inset: 10vh 10vw auto 10vw;
+  inset: 10vh 10vw;
   border-radius: 1rem;
   padding: 3rem;
   display: flex;
@@ -80,11 +80,14 @@ $slide-time: 500ms;
   background-color: $steel;
   color: $white;
   animation: $slide-time ease-in-out slide-in-from-left;
+  overflow-y: auto;
+  outline: none;
 
   h2,
   h3 {
     color: $timberwolf;
     background-color: inherit;
+    font-size: 1.5rem;
   }
 
   a {
@@ -104,6 +107,49 @@ $slide-time: 500ms;
   }
 }
 
-.close {
+.modal.close {
   animation: calc($slide-time * 1.1) ease-in-out slide-out-to-right;
+}
+
+.modal.light {
+  background-color: $laurel;
+  color: $raisin-black;
+
+  h2,
+  h3 {
+    color: darken($russian-green, 20%);
+  }
+
+  a {
+    color: darken($russian-green, 20%);
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  button {
+    color: $raisin-black;
+    background-color: $lavender;
+  }
+}
+
+.modal.header {
+  inset: 25vh 20vw auto 20vw !important;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: $trans-white;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $trans-black;
+  -webkit-border-radius: 1rem;
+}
+
+::-webkit-scrollbar-corner {
+  background: $trans-white;
 }

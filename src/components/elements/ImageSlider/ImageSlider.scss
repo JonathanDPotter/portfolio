@@ -43,7 +43,6 @@
     grid-area: image;
     max-width: 100%;
     margin: auto;
-    transition: opacity 200ms ease-in;
     z-index: 2;
   }
 
@@ -93,7 +92,7 @@
   #left-arrow,
   #right-arrow {
     &:focus {
-      color: lighten($space-sparkle, 20%);
+      color: $laurel;
     }
   }
 
@@ -108,4 +107,34 @@
       }
     }
   }
+}
+
+.slider-container[data-theme="bright"] {
+  #left-arrow,
+  #right-arrow {
+    color: $cadmium-orange;
+    &:focus {
+      color: $selective-yellow;
+    }
+  }
+
+  .dots {
+    .radio-container {
+      .radio {
+        background-color: $cadmium-orange;
+      }
+
+      input:checked ~ .radio {
+        background-color: $selective-yellow;
+      }
+    }
+  }
+}
+
+.clear {
+  opacity: 0;
+}
+
+.opaque {
+  opacity: 1;
 }

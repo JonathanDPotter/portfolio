@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import { useTheme } from "../../../context/themeContext";
-import Colors from "../../../Types/enums/colors";
 import "./Button.scss";
 
 interface Iprops {

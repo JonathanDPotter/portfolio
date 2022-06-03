@@ -1,19 +1,24 @@
 @use "../../../scss/animations" as *;
 @use "../../../scss/colors" as *;
 
-.trigger {
-  position: relative;
-}
+  .trigger {
+    position: relative;
+  }
 
-.curtain {
-  position: absolute;
-  left: 0;
-  width: 100vw;
-  background-color: $steel;
-  z-index: 100;
-  animation: 1500ms linear reveal;
-}
+  .curtain {
+    position: absolute;
+    inset: 0;
+    height: 0;
+    width: 100vw;
+    background-color: $steel;
+    z-index: 10;
+    animation: 1500ms linear reveal;
+  }
 
-.curtain[data-theme="light"] {
-  background-color: $space-sparkle;
-}
+  .curtain[data-theme="light"] {
+    background-color: $space-sparkle;
+  }
+
+    .curtain[data-theme="bright"] {
+    background-color: $scarlet;
+  }

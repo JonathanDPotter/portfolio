@@ -1,26 +1,57 @@
-import { faLightbulb, faSwatchbook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../../context/themeContext";
+import { faSwatchbook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from "../Menu/Menu";
 import "./Header.scss";
+import Themes from "../../../Types/enums/themes";
+import Button from "../Button/Button";
 
 const Header = () => {
   const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
+  const [themesOpen, setThemesOpen] = useState(false);
 
-  const toggleTheme = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const themes = Object.keys(Themes);
+
+  const themeChooser = (newTheme: string) => {
+    setTheme(newTheme);
+    setThemesOpen(false);
   };
 
   return (
     <header data-theme={theme}>
       <h1 onClick={() => navigate("/")}>Jonathan Potter</h1>
-      <span onClick={toggleTheme}>
+      <span onClick={() => setThemesOpen(!themesOpen)} title="Theme Chooser">
         <FontAwesomeIcon icon={faSwatchbook} />
       </span>
       <Menu />
+      <Modal
+        isOpen={themesOpen}
+        className={`modal header ${theme}`}
+        onRequestClose={() => setThemesOpen(false)}
+        overlayClassName="overlay"
+        data-header="true"
+        data-theme={theme}
+      >
+        {themes.map((themeName) => (
+          <Button
+            text={themeName}
+            size={1}
+            rounded
+            onClick={() => themeChooser(themeName)}
+          />
+        ))}
+        <Button
+          text="Cancel"
+          size={1}
+          rounded
+          onClick={() => setThemesOpen(false)}
+        />
+      </Modal>
     </header>
   );
 };

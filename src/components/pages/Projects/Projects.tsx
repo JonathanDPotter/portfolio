@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
-import Button from "../../elements/Button/Button";
+import { v4 as uuid } from "uuid";
 import Project from "../../elements/Project/Project";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
-import Colors from "../../../Types/enums/colors";
 import howlerMarkdown from "../../../markdown/howlerMarkdown.md";
 import blogMarkdown from "../../../markdown/blogMarkown.md";
 import upcMarkdown from "../../../markdown/upcMarkdown.md";
@@ -15,8 +13,6 @@ import "./Projects.scss";
 import TopSpace from "../../elements/TopSpace/TopSpace";
 
 const Projects = () => {
-  const navigate = useNavigate();
-
   const { theme } = useTheme();
 
   Modal.setAppElement("#root");
@@ -90,7 +86,7 @@ const Projects = () => {
       </div>
       {markdowns.map(({ text, image, link }, i) => {
         return (
-          <>
+          <div className="project" key={uuid()}>
             <div className="divider">
               <TriggerOnScroll>
                 <Project markdownText={text} image={image} link={link} />
@@ -100,7 +96,7 @@ const Projects = () => {
               className="back-image"
               style={{ backgroundImage: `url("${image}")` }}
             ></div>
-          </>
+          </div>
         );
       })}
       <div className="divider"></div>

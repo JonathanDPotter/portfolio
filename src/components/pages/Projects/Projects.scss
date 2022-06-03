@@ -4,6 +4,7 @@
 .projects {
   overflow-x: hidden;
   overflow-y: auto;
+
   .divider {
     min-height: 50vh;
     width: auto;
@@ -27,7 +28,7 @@
     img {
       width: 100%;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 1rem auto;
       height: 10rem;
       object-fit: cover;
       object-position: 0 0;
@@ -48,6 +49,7 @@
       border-radius: 0.5rem;
       background-color: $timberwolf;
       color: $onyx;
+      margin-bottom: 1rem;
 
       &:focus,
       &:hover {

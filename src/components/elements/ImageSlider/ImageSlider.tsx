@@ -1,8 +1,7 @@
-import React, { ChangeEvent, FC, MouseEvent, useState } from "react";
+import React, { ChangeEvent, FC, MouseEvent, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuid } from "uuid";
-import Fade from "../../../Types/enums/fade";
 import "./ImageSlider.scss";
 import { useTheme } from "../../../context/themeContext";
 
@@ -14,12 +13,13 @@ interface Iprops {
 
 const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
   const numberOfImages = images.length;
-  const [image, setImage] = useState(0);
+  const [image, setImage] = useState("");
+  const [index, setIndex] = useState(0);
   const [opacity, setOpacity] = useState<number>(1);
 
   const { theme } = useTheme();
 
-  const timeout = 200;
+  const timeout = 250;
 
   const handleFade = () => {
     setOpacity(0);
@@ -33,9 +33,9 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
     handleFade();
     setTimeout(() => {
       if (id === "right-arrow") {
-        image === numberOfImages - 1 ? setImage(0) : setImage(image + 1);
+        index === numberOfImages - 1 ? setIndex(0) : setIndex(index + 1);
       } else if (id === "left-arrow") {
-        image === 0 ? setImage(numberOfImages - 1) : setImage(image - 1);
+        index === 0 ? setIndex(numberOfImages - 1) : setIndex(index - 1);
       }
     }, timeout);
   };
@@ -44,9 +44,13 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
     const { id } = event.currentTarget;
     handleFade();
     setTimeout(() => {
-      setImage(parseInt(id));
+      setIndex(parseInt(id));
     }, timeout);
   };
+
+  useEffect(() => {
+    setImage(images[index]);
+  }, [images, index]);
 
   return (
     <div
@@ -59,10 +63,10 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
       <img
-        src={images[image]}
-        alt={images[image]}
+        src={image}
+        alt={image}
         height={400}
-        style={{ opacity: opacity }}
+        className={opacity === 0 ? "clear" : "opaque"}
       />
       <form id={title} className="dots">
         {images.map((_, i) => (
@@ -72,7 +76,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
               name={title}
               id={i.toString()}
               onChange={radioHandler}
-              checked={i === image}
+              checked={i === index}
             />
             <span className="radio"></span>
           </div>

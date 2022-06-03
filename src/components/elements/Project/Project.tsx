@@ -4,8 +4,6 @@ import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Button from "../Button/Button";
-import TriggerOnScroll from "../TriggerOnScroll/TriggerOnScroll";
-import Colors from "../../../Types/enums/colors";
 import "./Project.scss";
 import { useTheme } from "../../../context/themeContext";
 
@@ -43,10 +41,11 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
       </button>
       <Modal
         isOpen={modalOpen}
-        contentLabel="Example Modal"
         onRequestClose={() => closeModal(() => setModalOpen(false))}
-        className={modalClose ? "modal close" : "modal"}
-        overlayClassName={modalClose ? "overlay close" : "overlay"}
+        className={modalClose ? `modal close ${theme}` : `modal ${theme}`}
+        overlayClassName={
+          modalClose ? `overlay close ${theme}` : `overlay ${theme}`
+        }
       >
         <ReactMarkdown children={markdownText} />
         <Button

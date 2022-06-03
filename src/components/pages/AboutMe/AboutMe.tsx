@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 import ImageSlider from "../../elements/ImageSlider/ImageSlider";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 import Cats from "../../../json/cats.json";
@@ -17,7 +17,6 @@ interface IsubjectInput {
 }
 
 const AboutMe = () => {
-  const navigate = useNavigate();
 
   const { theme } = useTheme();
 
@@ -49,7 +48,7 @@ const AboutMe = () => {
       </div>
       {jsonImages.map(({ title, imageJson, background }) => {
         return (
-          <>
+          <div key={uuid()}>
             <div className="divider">
               <TriggerOnScroll>
                 <p className="slide">{title}</p>
@@ -64,7 +63,7 @@ const AboutMe = () => {
               className="back-image"
               style={{ backgroundImage: `url(${background})` }}
             ></div>
-          </>
+          </div>
         );
       })}
       <div className="divider"></div>
