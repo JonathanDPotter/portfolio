@@ -5,7 +5,7 @@ header {
   position: fixed;
   inset: 0;
   width: 100%;
-  height: $header-h;
+  max-height: $header-h;
   line-height: $header-h;
   z-index: 20;
   background-color: $onyx;
@@ -21,7 +21,7 @@ header {
   span {
     color: $timberwolf;
     position: fixed;
-    inset: 0.5rem 75vw;
+    inset: 1vh 83vw;
   }
 }
 
@@ -45,6 +45,6 @@ header[data-theme="bright"] {
     background-color: $cadmium-orange;
   }
   span {
-    color: $selective-yellow;
+    color: $cadmium-orange;
   }
 }

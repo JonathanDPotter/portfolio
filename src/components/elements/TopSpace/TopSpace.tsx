@@ -1,25 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { FC } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "../../../context/themeContext";
 import Button from "../Button/Button";
 
-const TopSpace = () => {
+interface Iprops {
+  fadeOut: () => void;
+}
+
+const TopSpace: FC<Iprops> = ({ fadeOut }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { theme } = useTheme();
+
+  const changePage = (navigator: () => void) => {
+    fadeOut();
+    setTimeout(() => {
+      navigator();
+    }, 250);
+  };
 
   return (
     <div className="top-space" data-theme={theme}>
       {location.pathname === "/projects" ? <h2>Projects</h2> : <></>}
       {location.pathname === "/aboutme" ? <h2>About Me</h2> : <></>}
       <nav>
-        <Button size={2} text="Home" rounded onClick={() => navigate("/")} />
+        <Button
+          size={2}
+          text="Home"
+          rounded
+          onClick={() => changePage(() => navigate("/"))}
+        />
         {location.pathname === "/projects" ? (
           <Button
             size={2}
             text="About Me"
             rounded
-            onClick={() => navigate("/aboutme")}
+            onClick={() => changePage(() => navigate("/aboutme"))}
           />
         ) : (
           <></>
@@ -29,7 +45,7 @@ const TopSpace = () => {
             size={2}
             text="Projects"
             rounded
-            onClick={() => navigate("/projects")}
+            onClick={() => changePage(() => navigate("/projects"))}
           />
         ) : (
           <></>

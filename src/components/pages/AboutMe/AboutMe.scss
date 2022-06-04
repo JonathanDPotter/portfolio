@@ -10,10 +10,15 @@
     max-width: 1200px;
     margin: 0 auto;
     background-color: $onyx;
-    color: $steel;
+    color: lighten($steel, 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
 
     p {
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     .slide {
@@ -41,5 +46,17 @@
   .divider {
     background-color: $russian-green;
     color: $space-sparkle;
+  }
+}
+
+.about-me[data-theme="bright"] {
+  h2 {
+    color: $cadmium-orange;
+    background-color: $trans-white;
+  }
+
+  .divider {
+    background-color: $white;
+    color: $cadmium-orange;
   }
 }

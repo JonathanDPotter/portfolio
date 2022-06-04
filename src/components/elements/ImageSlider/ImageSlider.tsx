@@ -15,42 +15,41 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
   const numberOfImages = images.length;
   const [image, setImage] = useState("");
   const [index, setIndex] = useState(0);
-  const [opacity, setOpacity] = useState<number>(1);
+  const [opacity, setOpacity] = useState<string>("opaque");
 
   const { theme } = useTheme();
 
   const timeout = 250;
 
-  const handleFade = () => {
-    setOpacity(0);
+  const handleFade = (newIndex: number) => {
+    setOpacity("clear");
     setTimeout(() => {
-      setOpacity(1);
+      setOpacity("opaque");
+      setIndex(newIndex);
     }, timeout);
   };
 
   const handleClick = (event: MouseEvent) => {
     const { id } = event.currentTarget;
-    handleFade();
-    setTimeout(() => {
-      if (id === "right-arrow") {
-        index === numberOfImages - 1 ? setIndex(0) : setIndex(index + 1);
-      } else if (id === "left-arrow") {
-        index === 0 ? setIndex(numberOfImages - 1) : setIndex(index - 1);
-      }
-    }, timeout);
+    let newIndex = 0;
+
+    if (id === "right-arrow") {
+      index === numberOfImages - 1 ? (newIndex = 0) : (newIndex = index + 1);
+    } else if (id === "left-arrow") {
+      index === 0 ? (newIndex = numberOfImages - 1) : (newIndex = index - 1);
+    }
+
+    handleFade(newIndex);
   };
 
   const radioHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { id } = event.currentTarget;
-    handleFade();
-    setTimeout(() => {
-      setIndex(parseInt(id));
-    }, timeout);
+    handleFade(parseInt(id));
   };
 
   useEffect(() => {
     setImage(images[index]);
-  }, [images, index]);
+  }, [index]);
 
   return (
     <div
@@ -59,15 +58,14 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
       }
       data-theme={theme}
     >
-      <button onClick={handleClick} id="left-arrow">
+      <button
+        onClick={handleClick}
+        id="left-arrow"
+        disabled={opacity === "clear"}
+      >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      <img
-        src={image}
-        alt={image}
-        height={400}
-        className={opacity === 0 ? "clear" : "opaque"}
-      />
+      <img src={image} alt={image} height={400} className={opacity} />
       <form id={title} className="dots">
         {images.map((_, i) => (
           <div className="radio-container" key={uuid()}>
@@ -82,7 +80,11 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
           </div>
         ))}
       </form>
-      <button onClick={handleClick} id="right-arrow">
+      <button
+        onClick={handleClick}
+        id="right-arrow"
+        disabled={opacity === "clear"}
+      >
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
     </div>

@@ -10,7 +10,7 @@
     inset: 0;
     height: 0;
     width: 100vw;
-    background-color: $steel;
+    background-color: $onyx;
     z-index: 10;
     animation: 1500ms linear reveal;
   }
@@ -20,5 +20,5 @@
   }
 
     .curtain[data-theme="bright"] {
-    background-color: $scarlet;
+    background-color: $white;
   }

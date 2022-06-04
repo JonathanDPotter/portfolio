@@ -22,6 +22,7 @@ const Projects = () => {
   const [upcMarkdownText, setUpcMarkdownText] = useState("");
   const [weatherMarkdownText, setWeatherMarkdownText] = useState("");
   const [typieMarkdownText, setTypieMarkdownText] = useState("");
+  const [fade, setFade] = useState(true);
 
   const markdowns = [
     {
@@ -67,6 +68,8 @@ const Projects = () => {
   ];
 
   useEffect(() => {
+    setFade(false);
+
     const getMarkdown = async (
       markdown: string,
       setter: React.Dispatch<React.SetStateAction<string>>
@@ -80,9 +83,12 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="projects page" data-theme={theme}>
+    <div
+      className={fade ? "projects page fade" : "projects page"}
+      data-theme={theme}
+    >
       <div className="opening">
-        <TopSpace />
+        <TopSpace fadeOut={() => setFade(true)} />
       </div>
       {markdowns.map(({ text, image, link }, i) => {
         return (

@@ -43,6 +43,7 @@ const Header = () => {
             size={1}
             rounded
             onClick={() => themeChooser(themeName)}
+            key={uuid()}
           />
         ))}
         <Button

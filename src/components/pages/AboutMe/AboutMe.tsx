@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import ImageSlider from "../../elements/ImageSlider/ImageSlider";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
@@ -17,8 +17,9 @@ interface IsubjectInput {
 }
 
 const AboutMe = () => {
-
   const { theme } = useTheme();
+
+  const [fade, setFade] = useState(true);
 
   const jsonImages: IsubjectInput[] = [
     {
@@ -41,10 +42,17 @@ const AboutMe = () => {
     },
   ];
 
+  useEffect(() => {
+    setFade(false);
+  }, []);
+
   return (
-    <div className="about-me page" data-theme={theme}>
+    <div
+      className={fade ? "about-me page fade" : "about-me page"}
+      data-theme={theme}
+    >
       <div className="opening">
-        <TopSpace />
+        <TopSpace fadeOut={() => setFade(true)} />
       </div>
       {jsonImages.map(({ title, imageJson, background }) => {
         return (

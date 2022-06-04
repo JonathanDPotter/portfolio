@@ -5,8 +5,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
+    align-items: center;
 
     img {
       height: 50vh;
@@ -18,16 +18,16 @@
 
     nav {
       height: 50vh;
-      width: fit-content;
+      width: auto;
       display: flex;
       flex-direction: column;
-      padding-left: 20vw;
-      padding-right: 10vw;
-      justify-content: evenly;
+      justify-content: space-evenly;
+      align-items: center;
     }
-    @media screen and (min-width: 600px) {
-      flex-direction: row;
 
+    @media (min-width: 600px) {
+      display: grid;
+      grid-template: "img nav";
       img {
         margin: 0 auto;
       }

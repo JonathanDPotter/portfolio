@@ -2,12 +2,12 @@
 
 .hamburger-icon {
   position: absolute;
-  inset: 1vh 85vw;
-  height: 8vh;
-  width: 8vh;
+  inset: 3vh 90vw;
+  height: 4vh;
+  width: 4vh;
   z-index: 1000;
   cursor: pointer;
-  border-radius: 1rem;
+  border-radius: .5rem;
   background: $trans-white;
   &:hover {
     box-shadow: 0 0 1rem $trans-white;
@@ -17,16 +17,16 @@
   .icon-2,
   .icon-3 {
     position: absolute;
-    left: 25%;
-    top: 50%;
-    width: 4vh;
-    height: 0.25rem;
+    left: 12%;
+    top: 49%;
+    width: 3vh;
+    height: 3px;
     background-color: $black;
     transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
   }
 
   .icon-1 {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     animation-delay: 100ms;
   }
 
@@ -39,7 +39,7 @@
   }
 
   .icon-3 {
-    transform: translateY(8px);
+    transform: translateY(6px);
     animation-delay: 250ms;
   }
 
@@ -53,6 +53,7 @@
     color: $maize;
     line-height: 2rem;
     font-size: 0.75rem;
+    transform: translate(2px, 1rem);
 
     ul {
       padding: 0.5rem;
@@ -135,7 +136,7 @@
   .icon-1,
   .icon-2,
   .icon-3 {
-    background-color: $razzmatazz;
+    background-color: $white;
   }
 
   .options {
