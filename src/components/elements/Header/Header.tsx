@@ -15,6 +15,8 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const [themesOpen, setThemesOpen] = useState(false);
 
+  Modal.setAppElement("#root");
+
   const themes = Object.keys(Themes);
 
   const themeChooser = (newTheme: string) => {
@@ -25,9 +27,13 @@ const Header = () => {
   return (
     <header data-theme={theme}>
       <h1 onClick={() => navigate("/")}>Jonathan Potter</h1>
-      <span onClick={() => setThemesOpen(!themesOpen)} title="Theme Chooser">
+      <div
+        onClick={() => setThemesOpen(!themesOpen)}
+        className="theme-chooser"
+        title="Theme Chooser"
+      >
         <FontAwesomeIcon icon={faSwatchbook} />
-      </span>
+      </div>
       <Menu />
       <Modal
         isOpen={themesOpen}

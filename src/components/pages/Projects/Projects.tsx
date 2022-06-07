@@ -105,7 +105,6 @@ const Projects = () => {
           </div>
         );
       })}
-      <div className="divider"></div>
     </div>
   );
 };

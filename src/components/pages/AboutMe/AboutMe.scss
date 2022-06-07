@@ -38,11 +38,6 @@
 }
 
 .about-me[data-theme="light"] {
-  h2 {
-    color: $russian-green;
-    background-color: $trans-white;
-  }
-
   .divider {
     background-color: $russian-green;
     color: $space-sparkle;
@@ -50,10 +45,6 @@
 }
 
 .about-me[data-theme="bright"] {
-  h2 {
-    color: $cadmium-orange;
-    background-color: $trans-white;
-  }
 
   .divider {
     background-color: $white;

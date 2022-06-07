@@ -19,20 +19,24 @@ const Menu = () => {
       <div className={menuOpen ? "icon-3 open" : "icon-3"}></div>
       <nav className={menuOpen ? "options open" : "options closed"}>
         <ul>
-          <a
-            href="https://github.com/JonathanDPotter"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <li>github</li>
-          </a>
-          <a
-            href="https://linkedin.com/in/jonathan-potter-a806b8239"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <li>linkedIn</li>
-          </a>
+          <li>
+            <a
+              href="https://github.com/JonathanDPotter"
+              target="_blank"
+              rel="noreferrer"
+            >
+              github
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linkedin.com/in/jonathan-potter-a806b8239"
+              target="_blank"
+              rel="noreferrer"
+            >
+              linkedIn
+            </a>
+          </li>
           <li onClick={() => navigate("/contact")}>contact</li>
           <li onClick={() => navigate("/about")}>about</li>
           <li onClick={() => navigate("/resume")}>resume </li>

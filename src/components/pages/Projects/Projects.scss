@@ -80,11 +80,6 @@
 }
 
 .projects[data-theme="light"] {
-  
-  h2 {
-    color: $russian-green;
-    background-color: inherit;
-  }
 
   .divider {
     background-color: $space-sparkle;
@@ -114,18 +109,14 @@
 
 .projects[data-theme="bright"] {
   background-color: $white;
-  h2 {
-    color: $scarlet;
-    background-color: inherit;
-  }
 
   .divider {
-    background-color: $white;
+    background-color: $gray;
     color: $black;
 
     h2 {
       color: $black;
-      background-color: $trans-white;
+      background-color: inherit;
     }
 
     .link,

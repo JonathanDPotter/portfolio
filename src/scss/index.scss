@@ -1,6 +1,7 @@
 @use "./_colors" as *;
 @use "./sizing" as *;
 @use "./animations" as *;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 
 * {
   margin: 0;
@@ -13,8 +14,7 @@ html,
 body {
   overflow-x: hidden;
   position: relative;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -51,10 +51,19 @@ code {
 
 .page[data-theme="light"] {
   background-color: $lavender;
+  h2 {
+    color: $russian-green;
+    background-color: $trans-white;
+  }
 }
 
 .page[data-theme="bright"] {
   background-color: $gray;
+
+  h2 {
+    color: $scarlet;
+    background-color: inherit;
+  }
 }
 
 .page.fade {
@@ -68,7 +77,6 @@ h2 {
   padding: 0.5rem;
   border-radius: 0.5rem;
   color: $maize;
-  background-color: $trans-black;
 }
 
 $slide-time: 500ms;
@@ -94,6 +102,7 @@ $slide-time: 500ms;
   color: $white;
   animation: $slide-time ease-in-out slide-in-from-left;
   overflow-y: auto;
+  overflow-x: hidden;
   outline: none;
   z-index: 100;
 

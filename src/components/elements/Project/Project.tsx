@@ -18,6 +18,8 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
   const [modalClose, setModalClose] = useState(false);
   const { theme } = useTheme();
 
+  Modal.setAppElement("#root");
+
   const closeModal = (closeFunction: () => void) => {
     setModalClose(true);
     setTimeout(() => {

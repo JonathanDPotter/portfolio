@@ -3,25 +3,29 @@
 
 header {
   position: fixed;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 8fr 1fr 1fr;
   inset: 0;
   width: 100%;
+  padding: 0 1rem;
   max-height: $header-h;
-  line-height: $header-h;
   z-index: 20;
   background-color: $onyx;
 
   h1 {
     cursor: pointer;
     height: calc($header-h - 2vh);
-    line-height: $header-h;
+    line-height: calc($header-h - 2vh);
     padding: 0 0.5rem 0.5rem 0.5rem;
     margin-top: 1vh;
+    font-size: 1.7rem;
+    justify-self: start;
   }
 
-  span {
+  .theme-chooser {
     color: $timberwolf;
-    position: fixed;
-    inset: 1vh 83vw;
   }
 }
 
@@ -32,8 +36,13 @@ header[data-theme="light"] {
     color: $space-sparkle;
     background-color: $trans-white;
   }
+
   span {
     color: $raisin-black;
+
+    &:hover {
+      box-shadow: 0 0 1rem $raisin-black;
+    }
   }
 }
 
@@ -44,7 +53,11 @@ header[data-theme="bright"] {
     color: $white;
     background-color: $cadmium-orange;
   }
+
   span {
     color: $cadmium-orange;
+    &:hover {
+      box-shadow: 0 0 1rem $cadmium-orange;
+    }
   }
 }
