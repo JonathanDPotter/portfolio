@@ -25,11 +25,11 @@ const Resume = () => {
       data-theme={theme}
     >
       <iframe
-        src="https://drive.google.com/file/d/1Cgr42ZO9ryWBo0VB8VGh8a2lQSgTXDh5/preview"
+        src="https://drive.google.com/file/d/1-nERhXzjGB-0y_d1lJNh-fcPZjO6p-gj/preview"
         allow="autoplay"
       ></iframe>
       <nav>
-        <a href="https://drive.google.com/uc?export=download&id=1Cgr42ZO9ryWBo0VB8VGh8a2lQSgTXDh5">
+        <a href="https://drive.google.com/uc?export=download&id=1-nERhXzjGB-0y_d1lJNh-fcPZjO6p-gj">
           Download
         </a>
         <span onClick={() => changePage(() => navigate("/contact"))}>

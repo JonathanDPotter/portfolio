@@ -26,11 +26,13 @@ const Header = () => {
 
   return (
     <header data-theme={theme}>
-      <h1 onClick={() => navigate("/")}>Jonathan Potter</h1>
+      <h1 aria-label="Home" onClick={() => navigate("/")}>
+        Jonathan Potter
+      </h1>
       <div
         onClick={() => setThemesOpen(!themesOpen)}
         className="theme-chooser"
-        title="Theme Chooser"
+        aria-label="Theme Chooser"
       >
         <FontAwesomeIcon icon={faSwatchbook} />
       </div>

@@ -8,8 +8,22 @@
   cursor: pointer;
   border-radius: 0.25rem;
   background: $trans-white;
+  &:after {
+    content: attr(aria-label);
+    position: absolute;
+    inset: 2.5rem 0;
+    color: $maize;
+    font-size: 1rem;
+    opacity: 0;
+    transition-delay: 500ms;
+  }
+
   &:hover {
     box-shadow: 0 0 1rem $trans-white;
+
+    &:after {
+      opacity: 1;
+    }
   }
 
   .icon-1,
@@ -79,6 +93,7 @@
   }
 
   .options.open {
+    
     @for $num from 1 through 5 {
       li:nth-child(#{$num}) {
         transform-origin: top center;

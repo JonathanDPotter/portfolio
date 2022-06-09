@@ -1,5 +1,6 @@
 @use "../../../scss/sizing" as *;
 @use "../../../scss/colors" as *;
+@use "../../../scss/animations" as *;
 
 header {
   position: fixed;
@@ -15,17 +16,37 @@ header {
   background-color: $onyx;
 
   h1 {
+    position: relative;
     cursor: pointer;
     height: calc($header-h - 2vh);
     line-height: calc($header-h - 2vh);
     padding: 0 0.5rem 0.5rem 0.5rem;
     margin-top: 1vh;
-    font-size: 1.7rem;
     justify-self: start;
+    font-size: 1.7rem;
   }
 
   .theme-chooser {
+    position: relative;
     color: $timberwolf;
+  }
+
+  h1,
+  .theme-chooser {
+    &:after {
+      position: absolute;
+      inset: 1.5rem 0;
+      content: attr(aria-label);
+      font-size: 1rem;
+      font-weight: 500;
+      color: $maize;
+      animation: fade-in ease;
+      transition-delay: 500ms;
+      opacity: 0;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
   }
 }
 
