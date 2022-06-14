@@ -32,7 +32,7 @@ const Header = () => {
       <div
         onClick={() => setThemesOpen(!themesOpen)}
         className="theme-chooser"
-        aria-label="Theme Chooser"
+        aria-label="Theme"
       >
         <FontAwesomeIcon icon={faSwatchbook} />
       </div>
@@ -49,17 +49,11 @@ const Header = () => {
           <Button
             text={themeName}
             size={1}
-            rounded
             onClick={() => themeChooser(themeName)}
             key={uuid()}
           />
         ))}
-        <Button
-          text="Cancel"
-          size={1}
-          rounded
-          onClick={() => setThemesOpen(false)}
-        />
+        <Button text="Cancel" size={1} onClick={() => setThemesOpen(false)} />
       </Modal>
     </header>
   );

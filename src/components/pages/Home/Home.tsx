@@ -31,13 +31,11 @@ const Home = () => {
           <Button
             text="About Me"
             size={2}
-            rounded
             onClick={() => changePage(() => navigate("/aboutme"))}
           />
           <Button
             text="Projects"
             size={2}
-            rounded
             onClick={() => changePage(() => navigate("/projects"))}
           />
         </nav>

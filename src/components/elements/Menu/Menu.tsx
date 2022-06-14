@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../../context/themeContext";
+import Button from "../Button/Button";
 import "./Menu.scss";
 
 const Menu: FC = () => {
@@ -45,7 +46,10 @@ const Menu: FC = () => {
             about
           </li>
           <li onClick={() => navigate("/resume")} tabIndex={0}>
-            resume{" "}
+            resume
+          </li>
+          <li onClick={() => navigate("/")} tabIndex={0}>
+            home
           </li>
         </ul>
       </nav>

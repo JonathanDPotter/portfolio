@@ -27,14 +27,12 @@ const TopSpace: FC<Iprops> = ({ fadeOut }) => {
         <Button
           size={2}
           text="Home"
-          rounded
           onClick={() => changePage(() => navigate("/"))}
         />
         {location.pathname === "/projects" ? (
           <Button
             size={2}
             text="About Me"
-            rounded
             onClick={() => changePage(() => navigate("/aboutme"))}
           />
         ) : (
@@ -44,7 +42,6 @@ const TopSpace: FC<Iprops> = ({ fadeOut }) => {
           <Button
             size={2}
             text="Projects"
-            rounded
             onClick={() => changePage(() => navigate("/projects"))}
           />
         ) : (

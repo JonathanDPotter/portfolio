@@ -15,18 +15,15 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
   const numberOfImages = images.length;
   const [image, setImage] = useState("");
   const [index, setIndex] = useState(0);
+  const [nextIndex, setNextIndex] = useState(0);
   const [opacity, setOpacity] = useState<string>("opaque");
 
   const { theme } = useTheme();
 
   const timeout = 250;
 
-  const handleFade = (newIndex: number) => {
+  const handleFade = () => {
     setOpacity("clear");
-    setTimeout(() => {
-      setOpacity("opaque");
-      setIndex(newIndex);
-    }, timeout);
   };
 
   const handleClick = (event: MouseEvent) => {
@@ -38,13 +35,19 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
     } else if (id === "left-arrow") {
       index === 0 ? (newIndex = numberOfImages - 1) : (newIndex = index - 1);
     }
-
-    handleFade(newIndex);
+    setNextIndex(newIndex);
+    handleFade();
   };
 
   const radioHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { id } = event.currentTarget;
-    handleFade(parseInt(id));
+    setNextIndex(parseInt(id));
+    handleFade();
+  };
+
+  const handleAnimationEnd = () => {
+    setIndex(nextIndex);
+    setOpacity("opaque");
   };
 
   useEffect(() => {
@@ -65,7 +68,13 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
       >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      <img src={image} alt={image} height={400} className={opacity} />
+      <img
+        src={image}
+        alt={image}
+        height={400}
+        className={opacity}
+        onAnimationEnd={handleAnimationEnd}
+      />
       <form id={title} className="dots">
         {images.map((_, i) => (
           <div className="radio-container" key={uuid()}>

@@ -1,39 +1,44 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { useTheme } from "../../../context/themeContext";
 import "./Button.scss";
 
 interface Iprops {
   text: string;
   size?: number;
-  rounded?: boolean;
-  round?: boolean;
   border?: string;
   onClick: () => void;
 }
 
-const Button: FC<Iprops> = ({
-  text,
-  size = 1,
-  rounded = false,
-  round = false,
-  border,
-  onClick,
-}) => {
+const Button: FC<Iprops> = ({ text, size = 1, border, onClick }) => {
   const initialStyle = {
     fontSize: `${size}rem`,
-    padding: round ? 0 : `${size / 4}rem`,
-    borderRadius: rounded ? `${size / 4}rem` : round ? "50%" : 0,
-    height: round ? `${size + text.length}rem` : "fit-content",
-    width: round ? `${size + text.length}rem` : "fit-content",
     border: border ? `${size * 2}px solid ${border}` : "none",
+    "--clientHeight": "0",
   };
 
   const [style, setStyle] = useState(initialStyle);
 
+  const btn = useRef<HTMLButtonElement>(null);
+
   const { theme } = useTheme();
 
+  useEffect(() => {
+    if (btn) {
+      setStyle({
+        ...style,
+        "--clientHeight": `${btn.current?.clientHeight}px`,
+      });
+    }
+  }, []);
+
   return (
-    <button style={style} onClick={onClick} data-theme={theme}>
+    <button
+      style={style}
+      onClick={onClick}
+      data-theme={theme}
+      className="btn"
+      ref={btn}
+    >
       {text}
     </button>
   );

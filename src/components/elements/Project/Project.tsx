@@ -53,7 +53,6 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
         <Button
           text="Close"
           size={2}
-          rounded
           onClick={() => closeModal(() => setModalOpen(false))}
         />
       </Modal>

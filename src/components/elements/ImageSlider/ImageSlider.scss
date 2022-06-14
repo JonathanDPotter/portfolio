@@ -134,9 +134,10 @@
 }
 
 .clear {
+  animation: fade-out 250ms;
   opacity: 0;
 }
 
 .opaque {
-  opacity: 1;
+  animation: fade-in 250ms;
 }

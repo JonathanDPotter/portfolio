@@ -9,21 +9,33 @@ header {
   justify-items: center;
   grid-template-columns: 8fr 1fr 1fr;
   inset: 0;
-  width: 100%;
-  padding: 0 1rem;
   max-height: $header-h;
+  width: 100%;
   z-index: 20;
   background-color: $onyx;
 
   h1 {
     position: relative;
     cursor: pointer;
-    height: calc($header-h - 2vh);
-    line-height: calc($header-h - 2vh);
-    padding: 0 0.5rem 0.5rem 0.5rem;
-    margin-top: 1vh;
+    height: $header-h;
+    width: 50vw;
     justify-self: start;
     font-size: 1.7rem;
+    background-color: $steel;
+    font-size: 2rem;
+    padding-left: 2rem;
+
+    &::before {
+      content: "";
+      background-color: inherit;
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      transform: skew($skew-deg, 0);
+      transform-origin: bottom left;
+    }
   }
 
   .theme-chooser {
@@ -43,6 +55,7 @@ header {
       animation: fade-in ease;
       transition-delay: 500ms;
       opacity: 0;
+      transform: translateY(1.5rem);
     }
     &:hover::after {
       opacity: 1;
@@ -55,7 +68,7 @@ header[data-theme="light"] {
 
   h1 {
     color: $space-sparkle;
-    background-color: $trans-white;
+    background-color: $laurel;
   }
 
   span {

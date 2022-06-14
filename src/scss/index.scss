@@ -28,7 +28,7 @@ code {
 
 .page {
   position: fixed;
-  inset: 10vh 0;
+  inset: $header-h 0;
   min-height: $page-h;
   width: 100vw;
   background-color: $black;
@@ -70,7 +70,6 @@ code {
   opacity: 0;
 }
 
-h1,
 h2 {
   font-size: 2rem;
   width: fit-content;
@@ -123,10 +122,6 @@ $slide-time: 500ms;
       color: lighten($maize, 10%);
       outline: $trans-white solid 2px;
     }
-  }
-
-  button {
-    font-weight: 700;
   }
 }
 
