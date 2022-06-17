@@ -8,7 +8,7 @@
   z-index: 1000;
   cursor: pointer;
   border-radius: 0.25rem;
-  background: $trans-white;
+
   &:after {
     content: attr(aria-label);
     position: absolute;
@@ -20,11 +20,19 @@
   }
 
   &:hover {
-    box-shadow: 0 0 1rem $trans-white;
+    .icon-1,
+    .icon-2,
+    .icon-3 {
+      box-shadow: 0 0 1rem $timberwolf;
+    }
 
     &:after {
       opacity: 1;
     }
+  }
+
+  &:focus {
+    outline: $maize solid 1px;
   }
 
   .icon-1,
@@ -35,7 +43,7 @@
     top: 49%;
     width: 3vh;
     height: 3px;
-    background-color: $black;
+    background-color: $timberwolf;
     transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
   }
 
@@ -81,6 +89,11 @@
       li {
         list-style-type: none;
       }
+
+      li:focus,
+      a:focus {
+        outline: $maize solid 1px;
+      }
     }
   }
 
@@ -100,16 +113,29 @@
 }
 
 .hamburger-icon[data-theme="light"] {
-  background: $russian-green;
+  background-color: $space-sparkle;
+
+  &:after {
+    color: $raisin-black;
+  }
 
   &:hover {
-    box-shadow: 0 0 1rem $russian-green;
+    background-color: inherit;
+    .icon-1,
+    .icon-2,
+    .icon-3 {
+      box-shadow: 0 0 1rem $laurel;
+    }
+  }
+
+  &:focus {
+    outline: $laurel solid 2px;
   }
 
   .icon-1,
   .icon-2,
   .icon-3 {
-    background-color: $space-sparkle;
+    background-color: $laurel;
   }
 
   .options {
@@ -117,15 +143,29 @@
 
     ul {
       background-color: $laurel;
+
+      li:focus,
+      a:focus {
+        outline: $raisin-black solid 1px;
+      }
     }
   }
 }
 
 .hamburger-icon[data-theme="bright"] {
-  background: $cadmium-orange;
+  background-color: inherit;
+
+  &:after {
+    color: $black;
+  }
 
   &:hover {
-    box-shadow: 0 0 1rem $selective-yellow;
+    background-color: inherit;
+    .icon-1,
+    .icon-2,
+    .icon-3 {
+      box-shadow: 0 0 1rem $selective-yellow;
+    }
   }
 
   .icon-1,
@@ -136,9 +176,15 @@
 
   .options {
     color: $black;
+    font-size: 0.8rem;
 
     ul {
-      background-color: $selective-yellow;
+      background-color: $cadmium-orange;
+
+      li:focus,
+      a:focus {
+        outline: $scarlet solid 1px;
+      }
     }
   }
 }

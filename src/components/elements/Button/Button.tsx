@@ -6,17 +6,20 @@ interface Iprops {
   text: string;
   size?: number;
   border?: string;
+  style?: {};
   onClick: () => void;
 }
 
-const Button: FC<Iprops> = ({ text, size = 1, border, onClick }) => {
-  const initialStyle = {
+const Button: FC<Iprops> = ({ text, size = 1, border, onClick, style }) => {
+  let initialStyle = {
     fontSize: `${size}rem`,
     border: border ? `${size * 2}px solid ${border}` : "none",
     "--clientHeight": "0",
   };
 
-  const [style, setStyle] = useState(initialStyle);
+  if (style) initialStyle = { ...initialStyle, ...style };
+
+  const [buttonStyle, setButtonStyle] = useState(initialStyle);
 
   const btn = useRef<HTMLButtonElement>(null);
 
@@ -24,8 +27,8 @@ const Button: FC<Iprops> = ({ text, size = 1, border, onClick }) => {
 
   useEffect(() => {
     if (btn) {
-      setStyle({
-        ...style,
+      setButtonStyle({
+        ...buttonStyle,
         "--clientHeight": `${btn.current?.clientHeight}px`,
       });
     }
@@ -33,7 +36,7 @@ const Button: FC<Iprops> = ({ text, size = 1, border, onClick }) => {
 
   return (
     <button
-      style={style}
+      style={buttonStyle}
       onClick={onClick}
       data-theme={theme}
       className="btn"

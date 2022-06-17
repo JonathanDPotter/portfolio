@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { v4 as uuid } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useTheme } from "../../../context/themeContext";
-import { faSwatchbook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from "../Menu/Menu";
-import "./Header.scss";
 import Themes from "../../../Types/enums/themes";
 import Button from "../Button/Button";
+import "./Header.scss";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const { theme, setTheme } = useTheme();
-  const [themesOpen, setThemesOpen] = useState(false);
+  const { theme, setTheme, themesOpen, setThemesOpen } = useTheme();
+
+  const location = useLocation();
 
   Modal.setAppElement("#root");
 
@@ -25,18 +23,26 @@ const Header = () => {
   };
 
   return (
-    <header data-theme={theme}>
-      <h1 aria-label="Home" onClick={() => navigate("/")}>
-        Jonathan Potter
-      </h1>
-      <div
-        onClick={() => setThemesOpen(!themesOpen)}
-        className="theme-chooser"
-        aria-label="Theme"
-      >
-        <FontAwesomeIcon icon={faSwatchbook} />
-      </div>
+    <header data-theme={theme} data-location={location.pathname}>
+      <h1>Jonathan Potter</h1>
       <Menu />
+      <nav>
+        <NavLink to="/" tabIndex={location.pathname === "/" ? -1 : 0}>
+          <div className="text-container">Home</div>
+        </NavLink>
+        <NavLink to="/aboutme" tabIndex={location.pathname === "/" ? -1 : 0}>
+          <div className="text-container">About Me</div>
+        </NavLink>
+        <NavLink to="/projects" tabIndex={location.pathname === "/" ? -1 : 0}>
+          <div className="text-container">Projects</div>
+        </NavLink>
+        <NavLink to="/contact" tabIndex={location.pathname === "/" ? -1 : 0}>
+          <div className="text-container">Contact</div>
+        </NavLink>
+        <NavLink to="/about" tabIndex={location.pathname === "/" ? -1 : 0}>
+          <div className="text-container">About</div>
+        </NavLink>
+      </nav>
       <Modal
         isOpen={themesOpen}
         className={`modal header ${theme}`}
@@ -51,9 +57,10 @@ const Header = () => {
             size={1}
             onClick={() => themeChooser(themeName)}
             key={uuid()}
+            style={{ width: "5rem" }}
           />
         ))}
-        <Button text="Cancel" size={1} onClick={() => setThemesOpen(false)} />
+        <Button text="cancel" size={1} onClick={() => setThemesOpen(false)} />
       </Modal>
     </header>
   );

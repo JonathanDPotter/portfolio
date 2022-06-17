@@ -10,7 +10,6 @@ import weatherMarkdown from "../../../markdown/weatherMarkdown.md";
 import typieMarkdown from "../../../markdown/typieMarkdown.md";
 import { useTheme } from "../../../context/themeContext";
 import "./Projects.scss";
-import TopSpace from "../../elements/TopSpace/TopSpace";
 
 const Projects = () => {
   const { theme } = useTheme();
@@ -88,7 +87,7 @@ const Projects = () => {
       data-theme={theme}
     >
       <div className="opening">
-        <TopSpace fadeOut={() => setFade(true)} />
+        <h2>Projects</h2>
       </div>
       {markdowns.map(({ text, image, link }, i) => {
         return (

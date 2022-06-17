@@ -8,12 +8,12 @@
   text-align: center;
   color: $maize;
   background-color: $steel;
-  padding-right: 1rem;
+  padding: 0 1rem;
 
   &::before {
     content: "";
     position: absolute;
-    inset: 0 -1rem;
+    inset: 0 calc((var(--clientHeight) * -0.65) / 2);
     background-color: inherit;
     height: 100%;
     width: 50%;
@@ -26,14 +26,17 @@
     height: 2px;
     width: 0;
     position: absolute;
-    inset: calc(100% - 2px) calc(var(--clientHeight) * -0.65);
+    inset: calc(100% - 2px) calc(var(--clientHeight) * -0.64);
     background-color: $maize;
     transition: width 250ms ease-in-out;
     transform: skew($skew-deg);
   }
 
   &:focus {
-    outline: $white solid 2px;
+    outline: none;
+    &::after {
+      width: calc(100% + var(--clientHeight) * 0.65);
+    } 
   }
 
   &:hover {
@@ -47,14 +50,14 @@
 
 button[data-theme="light"] {
   color: $russian-green;
-  background-color: $trans-white;
+  background-color: $laurel;
 
   &:focus {
     outline: $laurel solid 2px;
   }
 
   &:hover {
-    background-color: $laurel;
+    background-color: lighten($laurel, 10%);
     color: darken($russian-green, 20%);
   }
 
@@ -75,7 +78,7 @@ button[data-theme="bright"] {
     background-color: $selective-yellow;
   }
 
-    &:after {
+  &:after {
     background-color: $cadmium-orange;
   }
 }

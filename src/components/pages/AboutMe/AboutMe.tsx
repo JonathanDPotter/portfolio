@@ -8,7 +8,6 @@ import Portland from "../../../json/portland.json";
 import IjsonImages from "../../../Types/interfaces/jsonImages";
 import "./AboutMe.scss";
 import { useTheme } from "../../../context/themeContext";
-import TopSpace from "../../elements/TopSpace/TopSpace";
 
 interface IsubjectInput {
   title: string;
@@ -52,7 +51,7 @@ const AboutMe = () => {
       data-theme={theme}
     >
       <div className="opening">
-        <TopSpace fadeOut={() => setFade(true)} />
+        <h2>About Me</h2>
       </div>
       {jsonImages.map(({ title, imageJson, background }) => {
         return (

@@ -13,7 +13,9 @@ interface Iprops {
 
 const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
   const numberOfImages = images.length;
+  const [prevImage, setPrevImage] = useState("");
   const [image, setImage] = useState("");
+  const [nextImage, setNextImage] = useState("");
   const [index, setIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(0);
   const [opacity, setOpacity] = useState<string>("opaque");
@@ -51,7 +53,13 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
   };
 
   useEffect(() => {
+    let prev = index - 1;
+    if (prev < 0) prev = numberOfImages - 1;
+    let next = index + 1;
+    if (next === numberOfImages - 1) next = 0;
+    setPrevImage(images[prev]);
     setImage(images[index]);
+    setNextImage(images[next]);
   }, [index]);
 
   return (
@@ -68,6 +76,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
       >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
+      <img src={prevImage} alt={prevImage} height="0" width="0" />
       <img
         src={image}
         alt={image}
@@ -75,6 +84,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
         className={opacity}
         onAnimationEnd={handleAnimationEnd}
       />
+      <img src={nextImage} alt={nextImage} height="0" width="0" />
       <form id={title} className="dots">
         {images.map((_, i) => (
           <div className="radio-container" key={uuid()}>

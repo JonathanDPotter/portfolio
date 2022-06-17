@@ -91,7 +91,6 @@ $slide-time: 500ms;
 .modal {
   position: absolute;
   inset: 10vh 10vw;
-  border-radius: 1rem;
   padding: 3rem;
   display: flex;
   flex-direction: column;
@@ -103,7 +102,16 @@ $slide-time: 500ms;
   overflow-y: auto;
   overflow-x: hidden;
   outline: none;
+  transform: skew($skew-deg);
   z-index: 100;
+
+  button {
+    transform: skew(-$skew-deg);
+  }
+
+  &::after {
+    content: "";
+  }
 
   h2,
   h3 {

@@ -7,7 +7,8 @@ header {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 8fr 1fr 1fr;
+  grid-template-columns: 9fr 1fr;
+  grid-template-rows: 1fr 1fr;
   inset: 0;
   max-height: $header-h;
   width: 100%;
@@ -16,8 +17,7 @@ header {
 
   h1 {
     position: relative;
-    cursor: pointer;
-    height: $header-h;
+    height: calc($header-h/2);
     width: 50vw;
     justify-self: start;
     font-size: 1.7rem;
@@ -38,28 +38,69 @@ header {
     }
   }
 
-  .theme-chooser {
+  nav {
     position: relative;
-    color: $timberwolf;
-  }
+    grid-column: span 2;
+    display: grid;
+    border-top: 2px solid $onyx;
+    gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: calc($header-h/2);
 
-  h1,
-  .theme-chooser {
-    &:after {
+    &::before {
+      content: "";
       position: absolute;
-      inset: 1.5rem 0;
-      content: attr(aria-label);
+      inset: 0;
+      background-color: $steel;
+      width: 3rem;
+      height: 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 calc(100% - 3rem);
+      background-color: $steel;
+      width: 3rem;
+      height: 105%;
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: $black;
       font-size: 1rem;
-      font-weight: 500;
-      color: $maize;
-      animation: fade-in ease;
-      transition-delay: 500ms;
-      opacity: 0;
-      transform: translateY(1.5rem);
+      transform: skew($skew-deg);
+      height: 100%;
+      width: 100%;
+      background-color: $steel;
+      cursor: pointer;
+
+      &.active {
+        color: $maize;
+      }
+
+      &:hover {
+        background-color: lighten($onyx, 10%);
+      }
+
+      .text-container {
+        transform: skew(-$skew-deg);
+        line-height: calc($header-h/2);
+        text-align: center;
+      }
     }
-    &:hover::after {
-      opacity: 1;
-    }
+  }
+}
+
+header[data-location="/"] {
+  max-height: $header-h/2;
+
+  nav {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
@@ -70,14 +111,6 @@ header[data-theme="light"] {
     color: $space-sparkle;
     background-color: $laurel;
   }
-
-  span {
-    color: $raisin-black;
-
-    &:hover {
-      box-shadow: 0 0 1rem $raisin-black;
-    }
-  }
 }
 
 header[data-theme="bright"] {
@@ -86,12 +119,5 @@ header[data-theme="bright"] {
   h1 {
     color: $white;
     background-color: $cadmium-orange;
-  }
-
-  span {
-    color: $cadmium-orange;
-    &:hover {
-      box-shadow: 0 0 1rem $cadmium-orange;
-    }
   }
 }
