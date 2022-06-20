@@ -1,10 +1,12 @@
 {
-  "title": "cars",
+  "title": "cats",
   "images": [
-    "https://cdn.pixabay.com/photo/2015/03/27/13/16/maine-coon-694730_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png",
-    "https://cdn.pixabay.com/photo/2016/09/05/21/37/cat-1647775__340.jpg",
-    "https://cdn.pixabay.com/photo/2016/01/20/13/05/cat-1151519__340.jpg",
-    "https://cdn.pixabay.com/photo/2017/02/15/12/12/cat-2068462__340.jpg"
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493847/portfolioAssets/animals/ramonaMatcha_efb2bo.jpg",
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493846/portfolioAssets/animals/bennieWindow_h5hwnz.jpg",
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493846/portfolioAssets/animals/eliOutside_pbgcw6.jpg",
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493846/portfolioAssets/animals/matcha_ze9wt1.jpg",
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493846/portfolioAssets/animals/bennie_sjsttp.jpg",
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493846/portfolioAssets/animals/bennieRamona_xbjm0i.jpg",
+    "https://res.cloudinary.com/skarsnik/image/upload/v1655493846/portfolioAssets/animals/bennieEli_vo0lmm.jpg"
   ]
 }
