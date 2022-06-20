@@ -33,6 +33,14 @@
 
       .btn {
         transform: skew(-$skew-deg);
+        text-align: left;
+
+        @for $i from 1 through 4 {
+          // clientHeight custom property is added in the Button component
+          &:nth-child(#{$i}) {
+            width: calc(100% + calc($i - 1) * calc(var(--clientHeight) * 0.75));
+          }
+        }
       }
     }
 

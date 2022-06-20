@@ -30,11 +30,11 @@ const Header = () => {
         <NavLink to="/" tabIndex={location.pathname === "/" ? -1 : 0}>
           <div className="text-container">Home</div>
         </NavLink>
-        <NavLink to="/aboutme" tabIndex={location.pathname === "/" ? -1 : 0}>
-          <div className="text-container">About Me</div>
-        </NavLink>
         <NavLink to="/projects" tabIndex={location.pathname === "/" ? -1 : 0}>
           <div className="text-container">Projects</div>
+        </NavLink>
+        <NavLink to="/aboutme" tabIndex={location.pathname === "/" ? -1 : 0}>
+          <div className="text-container">About Me</div>
         </NavLink>
         <NavLink to="/contact" tabIndex={location.pathname === "/" ? -1 : 0}>
           <div className="text-container">Contact</div>

@@ -28,7 +28,7 @@ const AboutMe = () => {
         "https://assets.vogue.com/photos/6125681736841c7a9ecfa2ae/master/w_2560%2Cc_limit/454278947",
     },
     {
-      title: "I have five cats.",
+      title: "I have three cats and a dog.",
       imageJson: Cats,
       background:
         "https://res.cloudinary.com/skarsnik/image/upload/v1654252884/webSelf_bfxuhv.jpg",
