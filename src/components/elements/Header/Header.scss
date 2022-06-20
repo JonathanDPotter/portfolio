@@ -7,17 +7,17 @@ header {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 9fr 1fr;
+  grid-template-columns: 6fr 1fr;
   grid-template-rows: 1fr 1fr;
   inset: 0;
-  max-height: $header-h;
+  height: calc($header-h * 2);
   width: 100%;
   z-index: 20;
   background-color: $onyx;
 
   h1 {
     position: relative;
-    height: calc($header-h/2);
+    height: calc($header-h);
     width: 50vw;
     justify-self: start;
     font-size: 1.7rem;
@@ -41,41 +41,23 @@ header {
   nav {
     position: relative;
     grid-column: span 2;
-    display: grid;
-    border-top: 2px solid $onyx;
-    gap: 2px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-top: 1px solid $onyx;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
     width: 100%;
-    height: calc($header-h/2);
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: $steel;
-      width: 3rem;
-      height: 100%;
-      z-index: -1;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0 calc(100% - 3rem);
-      background-color: $steel;
-      width: 3rem;
-      height: 105%;
-      z-index: -1;
-    }
 
     a {
       text-decoration: none;
       color: $black;
       font-size: 1rem;
       transform: skew($skew-deg);
-      height: 100%;
-      width: 100%;
+      height: 2.5rem;
+      width: fit-content;
+      padding: 0 1rem;
       background-color: $steel;
+      border: 2px solid $onyx;
       cursor: pointer;
 
       &.active {
@@ -93,10 +75,32 @@ header {
       }
     }
   }
+
+  @media (min-width: 600px) {
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: $steel;
+      width: 3rem;
+      height: 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 calc(100% - 3rem);
+      background-color: $steel;
+      width: 3rem;
+      height: 100%;
+      z-index: -1;
+    }
+  }
 }
 
 header[data-location="/"] {
-  max-height: $header-h/2;
+  max-height: $header-h;
 
   nav {
     opacity: 0;
@@ -119,5 +123,9 @@ header[data-theme="bright"] {
   h1 {
     color: $white;
     background-color: $cadmium-orange;
+  }
+
+  @media (min-width: 600px) {
+    max-height: $header-h;
   }
 }

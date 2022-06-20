@@ -28,8 +28,8 @@ code {
 
 .page {
   position: fixed;
-  inset: $header-h 0;
-  min-height: $page-h;
+  inset: calc($header-h * 2) 0;
+  min-height: calc($page-h - $header-h);
   width: 100vw;
   background-color: $black;
   opacity: 1;
@@ -46,6 +46,11 @@ code {
     width: auto;
     display: flex;
     justify-content: space-around;
+  }
+
+  @media (min-width: 600px) {
+    inset: $header-h 0;
+    min-height: $page-h;
   }
 }
 

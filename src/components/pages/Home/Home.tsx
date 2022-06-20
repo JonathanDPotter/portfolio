@@ -30,28 +30,28 @@ const Home = () => {
     >
       <div className="container">
         <img
-          src="https://res.cloudinary.com/skarsnik/image/upload/v1654252881/webSelfBW_krqju9.png"
+          src="https://res.cloudinary.com/skarsnik/image/upload/v1655749376/portfolioAssets/homePage_hpzuur.jpg"
           alt="man in glasses smiling"
         />
         <nav>
           <Button
             text="Projects"
-            size={2.5}
+            size={2}
             onClick={() => changePage(() => navigate("/projects"))}
           />
           <Button
             text="About Me"
-            size={2.5}
+            size={2}
             onClick={() => changePage(() => navigate("/aboutme"))}
           />
           <Button
             text="Contact"
-            size={2.5}
+            size={2}
             onClick={() => changePage(() => navigate("/contact"))}
           />
           <Button
             text="About"
-            size={2.5}
+            size={2}
             onClick={() => changePage(() => navigate("/about"))}
           />
         </nav>

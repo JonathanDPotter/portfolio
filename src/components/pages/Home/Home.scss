@@ -6,40 +6,33 @@
 
   .container {
     height: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10vh;
     align-items: center;
 
     img {
-      height: 50vh;
+      height: 30vh;
+
       display: block;
       margin: 0 auto;
       opacity: 0.8;
-      clip-path: polygon(0 15%, 100% 15%, 50% 85%, 0% 85%);
     }
 
     nav {
-      height: 50vh;
-      width: auto;
+      height: 30vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: stretch;
-      gap: 1rem;
-      transform: skew($skew-deg);
 
       .btn {
-        transform: skew(-$skew-deg);
-        text-align: left;
-
-        @for $i from 1 through 4 {
-          // clientHeight custom property is added in the Button component
-          &:nth-child(#{$i}) {
-            width: calc(100% + calc($i - 1) * calc(var(--clientHeight) * 0.75));
-          }
+        text-align: center;
+        width: 30vh;
+        &::before {
+          display: none;
         }
       }
     }
@@ -47,8 +40,40 @@
     @media (min-width: 600px) {
       display: grid;
       grid-template: "img nav";
+      gap: 0;
+
       img {
-        margin: 0 auto;
+        // calculated to match 30deg angle of skewed buttons
+        clip-path: polygon(0 0, 100% 0, 42% 100%, 0% 100%);
+        height: 40vh;
+      }
+
+      nav {
+        height: 40vh;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        transform: skew($skew-deg);
+
+        .btn {
+          transform: skew(-$skew-deg);
+          text-align: left;
+
+          @for $i from 1 through 4 {
+            // clientHeight custom property is added in the Button component
+            &:nth-child(#{$i}) {
+              width: calc(
+                100% + calc($i - 1) * calc(var(--clientHeight) * 1.1)
+              );
+            }
+          }
+
+          &::before {
+            display: block;
+          }
+        }
       }
     }
   }
