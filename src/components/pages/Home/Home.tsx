@@ -45,6 +45,11 @@ const Home = () => {
             onClick={() => changePage(() => navigate("/aboutme"))}
           />
           <Button
+            text="Resume"
+            size={2}
+            onClick={() => changePage(() => navigate("/resume"))}
+          />
+          <Button
             text="Contact"
             size={2}
             onClick={() => changePage(() => navigate("/contact"))}

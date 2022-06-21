@@ -61,11 +61,12 @@ header {
       cursor: pointer;
 
       &.active {
-        color: $maize;
+        color: $maize !important;
       }
 
       &:hover {
-        background-color: lighten($onyx, 10%);
+        background-color: $onyx;
+        color: lighten($steel, 10%);
       }
 
       .text-container {
@@ -85,7 +86,7 @@ header {
 
     nav {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
       padding: 0 1rem;
 
       a {
@@ -142,7 +143,7 @@ header[data-theme="light"] {
   }
 
   .active {
-    color: $lavender;
+    color: $lavender !important;
   }
 
   nav {
@@ -168,7 +169,7 @@ header[data-theme="bright"] {
     }
   }
   .active {
-    color: darken($razzmatazz, 10%);
+    color: darken($razzmatazz, 10%) !important;
   }
 
   nav {

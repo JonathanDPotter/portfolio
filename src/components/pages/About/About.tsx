@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "../../../context/themeContext";
 import "./About.scss";
 
 const About = () => {
   const { theme } = useTheme();
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    setFade(false);
+  }, []);
 
   return (
-    <div className="about page" data-theme={theme}>
+    <div className={fade ? "about page fade" : "about page"} data-theme={theme}>
       <h2>About</h2>
       <section className="info">
         <p>
