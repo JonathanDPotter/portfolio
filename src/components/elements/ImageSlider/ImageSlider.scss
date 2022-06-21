@@ -12,7 +12,8 @@
     "left dots right";
   grid-template-columns: 10% 80% 10%;
   justify-content: center;
-  overflow-x: hidden;
+  overflow: hidden;
+
 
   button {
     background-color: inherit;

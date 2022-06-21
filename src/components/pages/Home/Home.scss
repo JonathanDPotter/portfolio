@@ -6,16 +6,17 @@
 
   .container {
     height: 100%;
+    max-width: 70vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10vh;
     align-items: center;
+    gap: 10vh;
+    overflow: hidden;
 
     img {
       height: 30vh;
-
       display: block;
       margin: 0 auto;
       opacity: 0.8;
@@ -38,14 +39,16 @@
     }
 
     @media (min-width: 600px) {
-      display: grid;
-      grid-template: "img nav";
+      flex-direction: row;
+      justify-content: start;
       gap: 0;
 
       img {
         // calculated to match 30deg angle of skewed buttons
         clip-path: polygon(0 0, 100% 0, 42% 100%, 0% 100%);
         height: 40vh;
+        margin-left: 0;
+        margin-right: -6vh;
       }
 
       nav {
@@ -60,13 +63,14 @@
         .btn {
           transform: skew(-$skew-deg);
           text-align: left;
+          width: 100%;
+          left: auto;
+          right: 0;
 
-          @for $i from 1 through 4 {
+          @for $i from 1 through 5 {
             // clientHeight custom property is added in the Button component
             &:nth-child(#{$i}) {
-              width: calc(
-                100% + calc($i - 1) * calc(var(--clientHeight) * 1.1)
-              );
+              width: calc(100% + calc($i * 10vw));
             }
           }
 

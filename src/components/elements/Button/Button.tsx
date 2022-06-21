@@ -12,7 +12,8 @@ interface Iprops {
 
 const Button: FC<Iprops> = ({ text, size = 1, border, onClick, style }) => {
   let initialStyle = {
-    fontSize: `${size}rem`,
+    fontSize: `${size}vh`,
+    height: `${size + 2}vh`,
     border: border ? `${size * 2}px solid ${border}` : "none",
     "--clientHeight": "0",
   };

@@ -36,27 +36,27 @@ const Home = () => {
         <nav>
           <Button
             text="Projects"
-            size={2}
+            size={4}
             onClick={() => changePage(() => navigate("/projects"))}
           />
           <Button
             text="About Me"
-            size={2}
+            size={4}
             onClick={() => changePage(() => navigate("/aboutme"))}
           />
           <Button
             text="Resume"
-            size={2}
+            size={4}
             onClick={() => changePage(() => navigate("/resume"))}
           />
           <Button
             text="Contact"
-            size={2}
+            size={4}
             onClick={() => changePage(() => navigate("/contact"))}
           />
           <Button
             text="About"
-            size={2}
+            size={4}
             onClick={() => changePage(() => navigate("/about"))}
           />
         </nav>

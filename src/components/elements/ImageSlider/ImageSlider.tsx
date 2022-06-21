@@ -73,6 +73,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
         onClick={handleClick}
         id="left-arrow"
         disabled={opacity === "clear"}
+        aria-label="previous image"
       >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
@@ -103,6 +104,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
         onClick={handleClick}
         id="right-arrow"
         disabled={opacity === "clear"}
+        aria-label="next image"
       >
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
