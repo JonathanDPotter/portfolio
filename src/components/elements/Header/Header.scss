@@ -17,7 +17,7 @@ header {
 
   h1 {
     position: relative;
-    height: calc($header-h);
+    height: $header-h;
     width: 50vw;
     justify-self: start;
     font-size: 1.7rem;
@@ -77,24 +77,37 @@ header {
   }
 
   @media (min-width: 600px) {
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: $steel;
-      width: 3rem;
-      height: 100%;
-      z-index: -1;
+    height: $header-h;
+
+    h1 {
+      height: calc($header-h/2);
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0 calc(100% - 3rem);
-      background-color: $steel;
-      width: 3rem;
-      height: 100%;
-      z-index: -1;
+    nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      padding: 0 1rem;
+
+      a {
+        height: auto;
+        width: auto;
+        font-weight: 600;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 2px 0;
+        background-color: $steel;
+        width: 3rem;
+        height: auto;
+        z-index: -1;
+      }
+
+      &::after {
+        inset: 2px calc(100% - 3rem);
+      }
     }
   }
 }
@@ -106,26 +119,62 @@ header[data-location="/"] {
     opacity: 0;
     pointer-events: none;
   }
+
+  @media (min-width: 600px) {
+    max-height: calc($header-h/2);
+  }
 }
 
 header[data-theme="light"] {
   background-color: $space-sparkle;
 
-  h1 {
+  h1,
+  a {
     color: $space-sparkle;
     background-color: $laurel;
+    border-color: $space-sparkle;
+
+    &:hover {
+      background-color: $space-sparkle;
+      color: $laurel;
+      border-color: $laurel;
+    }
+  }
+
+  .active {
+    color: $lavender;
+  }
+
+  nav {
+    &::before,
+    &::after {
+      background-color: $laurel;
+    }
   }
 }
 
 header[data-theme="bright"] {
   background-color: $electric-purple;
 
-  h1 {
+  h1,
+  a {
     color: $white;
     background-color: $cadmium-orange;
+    border-color: $electric-purple;
+
+    &:hover {
+      background-color: $electric-purple;
+      border-color: $cadmium-orange;
+    }
+  }
+  .active {
+    color: darken($razzmatazz, 10%);
   }
 
-  @media (min-width: 600px) {
-    max-height: $header-h;
+  nav {
+    &::before,
+    &::after {
+      background-color: $cadmium-orange;
+    }
   }
 }

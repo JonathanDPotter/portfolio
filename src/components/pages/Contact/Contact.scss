@@ -1,13 +1,39 @@
 @use "../../../scss/colors" as *;
 
+@use "../../.././scss/colors" as *;
+
 .contact {
   .content {
-    height: 80%;
-    width: 80%;
-    margin: auto;
-    border-radius: 1rem;
-    padding: 1rem;
     background-color: $steel;
-    color: $black;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    p {
+      text-indent: 2ch;
+      a {
+        color: $maize;
+      }
+    }
+  }
+}
+
+.contact[data-theme="light"] {
+  .content {
+    background-color: $russian-green;
+
+    a {
+      color: $white;
+    }
+  }
+}
+
+.contact[data-theme="bright"] {
+  .content {
+    background-color: $white;
+
+    a {
+      color: $electric-purple;
+    }
   }
 }
