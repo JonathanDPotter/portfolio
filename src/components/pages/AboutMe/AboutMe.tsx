@@ -3,11 +3,12 @@ import { v4 as uuid } from "uuid";
 import ImageSlider from "../../elements/ImageSlider/ImageSlider";
 import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 import Cats from "../../../json/cats.json";
-import Cars from "../../../json/cars.json";
+import Minis from "../../../json/minis.json";
 import Portland from "../../../json/portland.json";
 import IjsonImages from "../../../Types/interfaces/jsonImages";
 import "./AboutMe.scss";
 import { useTheme } from "../../../context/themeContext";
+import PulseDown from "../../elements/PulseDown/PulseDown";
 
 interface IsubjectInput {
   title: string;
@@ -34,8 +35,8 @@ const AboutMe = () => {
         "https://res.cloudinary.com/skarsnik/image/upload/v1654252884/webSelf_bfxuhv.jpg",
     },
     {
-      title: "Here are some Cars.",
-      imageJson: Cars,
+      title: "Recently finished miniatures.",
+      imageJson: Minis,
       background:
         "https://res.cloudinary.com/skarsnik/image/upload/v1654252881/webSelfBW_krqju9.png",
     },
@@ -52,28 +53,52 @@ const AboutMe = () => {
     >
       <div className="opening">
         <h2>About Me</h2>
+        <br />
+        <p>
+          Hello, my name is Jonathan Potter. I have been working in retail
+          grocery for about 25 years, but I decided that it was time to take my
+          careeer down a different path. I have been learning front-end
+          development for the past year and a half. In that time I have really
+          connected with react, and I have included on this site many example
+          projects using react. I plan to move on to using next.js for
+          server-side rendered apps and to react-native for mobile development.
+        </p>
+        <br />
+        <p>
+          I live in Portland Maine with my family, three cats and a dog. My
+          three children are all adults now, and the oldest lives in Chicago
+          while the two youngest are still at home.
+        </p>
+        <br />
+        <p>
+          I have many hobbies, from hiking, biking and running to carpentry,
+          music production, and tabletop wargaming. Most of my free time is now
+          spent writing web apps, but I still sneak in some miniature painting.
+        </p>
+        <PulseDown />
       </div>
-      {jsonImages.map(({ title, imageJson, background }) => {
-        return (
-          <div key={uuid()}>
-            <div className="divider">
-              <TriggerOnScroll>
-                <p className="slide">{title}</p>
-                <ImageSlider
-                  title={imageJson.title}
-                  images={imageJson.images}
-                  className="slide"
-                />
-              </TriggerOnScroll>
+      <section className="images">
+        {jsonImages.map(({ title, imageJson, background }) => {
+          return (
+            <div key={uuid()}>
+              <div className="divider">
+                <TriggerOnScroll>
+                  <p className="slide">{title}</p>
+                  <ImageSlider
+                    title={imageJson.title}
+                    images={imageJson.images}
+                    className="slide"
+                  />
+                </TriggerOnScroll>
+              </div>
+              <div
+                className="back-image"
+                style={{ backgroundImage: `url(${background})` }}
+              ></div>
             </div>
-            <div
-              className="back-image"
-              style={{ backgroundImage: `url(${background})` }}
-            ></div>
-          </div>
-        );
-      })}
-      <div className="divider"></div>
+          );
+        })}
+      </section>
     </div>
   );
 };

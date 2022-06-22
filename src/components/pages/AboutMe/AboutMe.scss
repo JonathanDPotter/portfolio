@@ -4,9 +4,16 @@
 .about-me {
   overflow-x: hidden;
   overflow-y: auto;
+  color: $timberwolf;
 
   .opening {
     height: 50vh;
+
+    p {
+      text-indent: 2ch;
+      max-width: 800px;
+      margin: 0 auto;
+    }
   }
 
   .divider {
@@ -43,6 +50,8 @@
 }
 
 .about-me[data-theme="light"] {
+  color: $raisin-black;
+
   .divider {
     background-color: $russian-green;
     color: $space-sparkle;
@@ -50,6 +59,7 @@
 }
 
 .about-me[data-theme="bright"] {
+  color: $black;
 
   .divider {
     background-color: $white;

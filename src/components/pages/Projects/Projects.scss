@@ -6,7 +6,21 @@
   overflow-y: auto;
 
   .opening {
+    position: relative;
     height: 50vh;
+    color: $timberwolf;
+
+    p {
+      text-indent: 2ch;
+      max-width: 800px;
+    }
+
+    .pulse-down {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      bottom: 0;
+    }
   }
 
   .divider {
@@ -14,6 +28,11 @@
     width: auto;
     background-color: $onyx;
     color: $timberwolf;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
     .trigger {
       min-height: 50vh;
@@ -52,18 +71,20 @@
     }
 
     button {
+      all: unset;
       width: fit-content;
       align-self: center;
-      font-size: 1rem;
+      font-size: inherit;
       padding: 0.5rem;
       border-radius: 0.5rem;
       background-color: $timberwolf;
       color: $onyx;
-      margin-bottom: 1rem;
 
       &:focus,
       &:hover {
         background-color: lighten($timberwolf, 10%);
+        color: darken($onyx, 10%);
+        outline: 2px solid $white;
       }
     }
   }
@@ -84,6 +105,10 @@
 }
 
 .projects[data-theme="light"] {
+
+  .opening {
+    color: $raisin-black;
+  }
 
   .divider {
     background-color: $space-sparkle;
@@ -114,6 +139,10 @@
 .projects[data-theme="bright"] {
   background-color: $white;
 
+  .opening {
+    color: $black;
+  }
+
   .divider {
     background-color: $gray;
     color: $black;
@@ -127,7 +156,8 @@
     a {
       color: $electric-purple;
       width: fit-content;
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         color: $cadmium-orange;
       }
     }

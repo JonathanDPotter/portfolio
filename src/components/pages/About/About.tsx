@@ -1,3 +1,5 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../../../context/themeContext";
 import "./About.scss";
@@ -28,6 +30,17 @@ const About = () => {
           react-modal to show modals, uuid for element keys, and fontawesome for
           icons.
         </p>
+        <br />
+        <button
+          onClick={() =>
+            window.open(
+              "https://github.com/JonathanDPotter/portfolio",
+              "_blank"
+            )
+          }
+        >
+          see code on github <FontAwesomeIcon icon={faGithub} />
+        </button>
       </section>
     </div>
   );

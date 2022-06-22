@@ -51,19 +51,18 @@ const Header = () => {
         className={`modal header ${theme}`}
         onRequestClose={() => setThemesOpen(false)}
         overlayClassName="overlay"
-        data-header="true"
-        data-theme={theme}
       >
-        {themes.map((themeName) => (
-          <Button
-            text={themeName}
-            size={1}
-            onClick={() => themeChooser(themeName)}
-            key={uuid()}
-            style={{ width: "5rem" }}
-          />
-        ))}
-        <Button text="cancel" size={1} onClick={() => setThemesOpen(false)} />
+        <div className="buttons">
+          {themes.map((themeName) => (
+            <Button
+              text={themeName}
+              size={2}
+              onClick={() => themeChooser(themeName)}
+              key={uuid()}
+            />
+          ))}
+          <Button text="cancel" size={2} onClick={() => setThemesOpen(false)} />
+        </div>
       </Modal>
     </header>
   );

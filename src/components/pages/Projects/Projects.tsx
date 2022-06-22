@@ -10,6 +10,7 @@ import weatherMarkdown from "../../../markdown/weatherMarkdown.md";
 import typieMarkdown from "../../../markdown/typieMarkdown.md";
 import { useTheme } from "../../../context/themeContext";
 import "./Projects.scss";
+import PulseDown from "../../elements/PulseDown/PulseDown";
 
 const Projects = () => {
   const { theme } = useTheme();
@@ -88,14 +89,22 @@ const Projects = () => {
     >
       <div className="opening">
         <h2>Projects</h2>
+        <p>
+          Below you will find a selection of front-end projects that I have
+          decided to feature here. Most of them have back-end express REST apis
+          that I wrote for them.
+        </p>
+        <PulseDown />
       </div>
       {markdowns.map(({ text, image, link }, i) => {
         return (
           <div className="project" key={uuid()}>
             <div className="divider">
-              <TriggerOnScroll>
-                <Project markdownText={text} image={image} link={link} />
-              </TriggerOnScroll>
+              <div className="container">
+                <TriggerOnScroll>
+                  <Project markdownText={text} image={image} link={link} />
+                </TriggerOnScroll>
+              </div>
             </div>
             <div
               className="back-image"

@@ -79,6 +79,7 @@ header {
 
   @media (min-width: 600px) {
     height: $header-h;
+    grid-template-columns: 8fr 1fr;
 
     h1 {
       height: calc($header-h/2);
