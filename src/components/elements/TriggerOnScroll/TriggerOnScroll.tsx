@@ -9,7 +9,7 @@ interface Iprops {
 const TriggerOnScroll: FC<Iprops> = ({ className, children }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-20% 0px",
+    rootMargin: "-10% 0px",
   });
 
   return (

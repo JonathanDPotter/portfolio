@@ -26,7 +26,7 @@ const About = () => {
           This site was written in typescript with react and does not utilize a
           back-end. I use sass for styling, the context api for global state
           management, react-intersection-observer for scroll events,
-          react-markdown to display markdown, react-pdf to display a pdf,
+          react-markdown to display markdown, react-pdf to display my resume,
           react-modal to show modals, uuid for element keys, and fontawesome for
           icons.
         </p>

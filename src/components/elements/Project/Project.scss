@@ -9,7 +9,7 @@
   position: absolute;
   inset: 0;
   height: 0;
-  width: 100vw;
+  max-width: 1200px;
   background-color: $onyx;
   z-index: 10;
   animation: 1500ms linear reveal;
@@ -20,5 +20,5 @@
 }
 
 .curtain[data-theme="bright"] {
-  background-color: $white;
+  background-color: $gray;
 }
