@@ -5,7 +5,7 @@ import TriggerOnScroll from "../../elements/TriggerOnScroll/TriggerOnScroll";
 import Cats from "../../../json/cats.json";
 import Minis from "../../../json/minis.json";
 import Portland from "../../../json/portland.json";
-import IjsonImages from "../../../Types/interfaces/jsonImages";
+import IjsonImages from "../../../Types/interfaces/jsonImagesInterface";
 import "./AboutMe.scss";
 import { useTheme } from "../../../context/themeContext";
 import PulseDown from "../../elements/PulseDown/PulseDown";

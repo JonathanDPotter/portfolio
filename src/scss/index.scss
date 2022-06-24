@@ -185,7 +185,7 @@ $slide-time: 500ms;
 }
 
 .modal.header {
-  inset: 35%;
+  inset: 15%;
   height: fit-content;
 
   .buttons {
@@ -197,6 +197,10 @@ $slide-time: 500ms;
     .btn {
       width: 100%;
     }
+  }
+
+  @media (min-width: 600px) {
+    inset: 35%;
   }
 }
 

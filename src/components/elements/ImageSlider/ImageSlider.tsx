@@ -56,7 +56,7 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
     let prev = index - 1;
     if (prev < 0) prev = numberOfImages - 1;
     let next = index + 1;
-    if (next === numberOfImages - 1) next = 0;
+    if (next === numberOfImages) next = 0;
     setPrevImage(images[prev]);
     setImage(images[index]);
     setNextImage(images[next]);
@@ -77,15 +77,15 @@ const ImageSlider: FC<Iprops> = ({ title, images, className }) => {
       >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      <img src={prevImage} alt={prevImage} height="0" width="0" />
+      <img src={prevImage} alt={title} height="0" width="0" />
       <img
         src={image}
-        alt={image}
+        alt={title}
         height={400}
         className={opacity}
         onAnimationEnd={handleAnimationEnd}
       />
-      <img src={nextImage} alt={nextImage} height="0" width="0" />
+      <img src={nextImage} alt={title} height="0" width="0" />
       <form id={title} className="dots">
         {images.map((_, i) => (
           <div className="radio-container" key={uuid()}>

@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faReact } from "@fortawesome/free-brands-svg-icons";
 import Button from "../Button/Button";
 import "./Project.scss";
 import { useTheme } from "../../../context/themeContext";
@@ -11,9 +11,10 @@ interface Iprops {
   markdownText: string;
   image: string;
   link: string;
+  github: string;
 }
 
-const Project: FC<Iprops> = ({ markdownText, image, link }) => {
+const Project: FC<Iprops> = ({ markdownText, image, link, github }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalClose, setModalClose] = useState(false);
   const { theme } = useTheme();
@@ -39,6 +40,9 @@ const Project: FC<Iprops> = ({ markdownText, image, link }) => {
       </p>
       <img src={image} alt="app screenshot" />
       <button onClick={() => window.open(link, "_blank")}>
+        go to hosted app <FontAwesomeIcon icon={faReact} />
+      </button>
+      <button onClick={() => window.open(github, "_blank")}>
         see code on github <FontAwesomeIcon icon={faGithub} />
       </button>
       <Modal
