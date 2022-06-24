@@ -28,7 +28,7 @@ const About = () => {
           management, react-intersection-observer for scroll events,
           react-markdown to display markdown, react-pdf to display my resume,
           react-modal to show modals, uuid for element keys, and fontawesome for
-          icons.
+          icons. The app is hosted on Vercel.
         </p>
         <br />
         <button
